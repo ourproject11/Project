@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <header className="container xl:px-24 px-4">
       <nav className="header">
-        <a href="/" className="flex items-center gap-2 text-2xl text-black">
+        <a href="/" className="flex items-center gap-2 text-3xl text-black">
           <img 
             src="/images/file.png" 
             width="29" 
