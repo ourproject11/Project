@@ -1,7 +1,9 @@
+// Navbar.jsx
+
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from "react-icons/fa";
-import './Navbar.css'; // Import the new CSS file
+import './Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,7 +29,6 @@ const Navbar = () => {
           />
           <span>HireHub</span>
         </a>
-        {/* Nav items for large devices */}
         <ul className="nav-items">
           {navItems.map(({ path, title }) => (
             <li key={path} className="nav-item">
@@ -41,12 +42,11 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Signup and login */}
         <div className="auth-links">
           <Link to="/login" className="py-2 px-5 border rounded">Log In</Link>
-          <Link to="/signup" className="py-2 px-5 border rounded signup">Signup</Link>
+          <Link to="/register" className="py-2 px-5 border rounded signup">Register Now</Link>
         </div>
-        {/* mobile menu */}
+
         <div className="mobile-menu-button">
           <button onClick={handleMenuToggler}>
             {isMenuOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}
@@ -54,7 +54,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Nav items for mobile version */}
       <div className={`mobile-menu ${isMenuOpen ? "visible" : "hidden"}`}>
         <ul>
           {navItems.map(({ path, title }) => (
