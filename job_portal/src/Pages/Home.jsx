@@ -6,7 +6,6 @@ const Home = () => {
   const handleInputChange = (event) => {
     setQuery(event.target.value)
   }
-  con
   return (
     <div>
       <Banner query = {query} handleInputChange = {handleInputChange}/>
