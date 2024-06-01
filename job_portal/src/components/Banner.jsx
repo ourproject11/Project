@@ -1,5 +1,4 @@
 import React from 'react';
-import { FiSearch } from 'react-icons/fi';
 import './Banner.css';
 
 const Banner = ({ query, handleInputChange }) => {
@@ -22,7 +21,7 @@ const Banner = ({ query, handleInputChange }) => {
             onChange={handleInputChange}
             value={query}
           />
-          <FiSearch className='search-icon' />
+           <button type="submit" className="button">Search</button>
         </form>
       </div>
     </div>
