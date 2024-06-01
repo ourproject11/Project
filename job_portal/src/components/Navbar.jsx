@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FaBars, FaXmark } from "react-icons/fa6";
-import '../App.css';
+import { FaBars, FaTimes } from "react-icons/fa";
+import './Navbar.css'; // Import the new CSS file
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,13 +49,13 @@ const Navbar = () => {
         {/* mobile menu */}
         <div className="mobile-menu-button">
           <button onClick={handleMenuToggler}>
-            {isMenuOpen ? <FaXmark className="w-5 h-5 text-primary" /> : <FaBars className="w-5 h-5 text-primary" />}
+            {isMenuOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}
           </button>
         </div>
       </nav>
 
       {/* Nav items for mobile version */}
-      <div className={`mobile-menu ${isMenuOpen ? "" : "hidden"}`}>
+      <div className={`mobile-menu ${isMenuOpen ? "visible" : "hidden"}`}>
         <ul>
           {navItems.map(({ path, title }) => (
             <li key={path} className="text-base text-white py-1">

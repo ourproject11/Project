@@ -1,0 +1,138 @@
+/* Container and Header */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #282c34; /* Dark background for header */
+    border-radius: 50px; /* Rounded corners for pill shape */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Logo and Title */
+  .header a {
+    display: flex;
+    align-items: center;
+    color: #61dafb; /* Light blue color */
+    text-decoration: none;
+  }
+  
+  .header a img {
+    margin-right: 10px;
+  }
+  
+  /* Navigation Items */
+  .nav-items {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-item a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px; /* Rounded corners for nav items */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-item a:hover, .nav-item a.active {
+    background-color: #61dafb; /* Light blue background on hover and active */
+    transform: scale(1.05); /* Slight scaling on hover */
+  }
+  
+  /* Authentication Links */
+  .auth-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    border: 2px solid #61dafb;
+    border-radius: 25px; /* Rounded corners for auth links */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .auth-links a:hover {
+    background-color: #61dafb;
+    color: black;
+    transform: scale(1.05); /* Slight scaling on hover */
+  }
+  
+  /* Mobile Menu Button */
+  .mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-button .icon {
+    color: white; /* Set icon color to white */
+    font-size: 24px; /* Adjust icon size as needed */
+  }
+  
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #282c34;
+    border-radius: 25px; /* Rounded corners for mobile menu */
+    margin-top: 10px;
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile-menu li {
+    text-align: center;
+  }
+  
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px; /* Rounded corners for mobile nav items */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .mobile-menu a:hover, .mobile-menu a.active {
+    background-color: #61dafb;
+    transform: scale(1.05); /* Slight scaling on hover */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-items {
+      display: none;
+    }
+    
+    .auth-links {
+      display: none;
+    }
+    
+    .mobile-menu-button {
+      display: block;
+    }
+    
+    .mobile-menu {
+      display: flex;
+    }
+  
+    .mobile-menu.hidden {
+      display: none;
+    }
+  
+    .mobile-menu.visible {
+      display: flex;
+    }
+  }
+  
