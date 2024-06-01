@@ -16,9 +16,9 @@ const Banner = (query , handleInputChange) => {
                 <FiSearch className='absolute mt-2.5 ml-2 text-gray-400'/>
             </div>
         </div>
-       </form>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;
