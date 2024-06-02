@@ -22,6 +22,16 @@ const Banner = ({ query, handleInputChange }) => {
             value={query}
           />
            <button type="submit" className="button">Search</button>
+
+          <input
+            type='text'
+            name='location'
+            id='location'
+            placeholder='Location'
+            className='input'
+            // value={query}
+          />
+           <button type="submit" className="button">Search</button>
         </form>
       </div>
     </div>

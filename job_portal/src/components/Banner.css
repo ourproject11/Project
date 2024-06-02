@@ -30,7 +30,9 @@
 }
 
 .form-container {
-  max-width: 32rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .form {
@@ -39,6 +41,7 @@
   border-bottom: 2px solid var(--purple-color);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  gap: 1rem;
 }
 
 .input {
@@ -46,10 +49,12 @@
   background-color: transparent;
   border: none;
   width: 100%;
+  max-width: 300px;
   color: #4a5568;
-  margin-right: 0.75rem;
   padding: 0.25rem 0.5rem;
   line-height: 1.5;
+  flex: 1;
+  min-width: 250px;
 }
 
 .input:focus {
@@ -70,5 +75,11 @@
 .button:hover {
   background-color: var(--purple-dark-color);
   border-color: var(--purple-dark-color);
+}
+
+@media (max-width: 768px) {
+  .input {
+    min-width: 150px; /* Reduce minimum width on smaller screens */
+  }
 }
 
