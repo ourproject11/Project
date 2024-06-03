@@ -5,10 +5,10 @@ const Banner = ({ query, handleInputChange }) => {
   return (
     <div className='container'>
       <h1 className='heading'>
-        Find your<span className='highlight'> new job</span> today
+        Discover your<span className='highlight'> next career</span>  opportunity today
       </h1>
       <p className='subheading'>
-        Thousands of jobs in all sectors are waiting for you
+      Countless job opportunities across all sectors are available for you.
       </p>
       <div className='form-container'>
         <form className='form'>

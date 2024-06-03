@@ -1,0 +1,12 @@
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* space-y-5 */
+  }
+  
+  .sidebar-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: bold; /* font-bold */
+    margin-bottom: 0.5rem; /* mb-2 */
+  }
+  

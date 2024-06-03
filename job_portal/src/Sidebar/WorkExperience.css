@@ -1,0 +1,20 @@
+.work-experience-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 500; /* font-medium */
+    margin-bottom: 0.5rem; /* mb-2 */
+  }
+  
+  .side-label-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Adjust margin as needed */
+  }
+  
+  .side-label-container input[type="radio"] {
+    margin-right: 0.5rem; /* Adjust spacing as needed */
+  }
+  
+  .checkmark {
+    /* Add your checkmark styles here, if any */
+  }
+  

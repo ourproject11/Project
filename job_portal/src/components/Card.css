@@ -1,0 +1,61 @@
+.card {
+    padding: 1rem; /* Add some padding if necessary */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 0.5rem; /* Optional: Add some border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add some box shadow */
+    transition: transform 0.2s; /* Optional: Add transition effect */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Optional: Add hover effect */
+  }
+  
+  .card-link {
+    display: flex;
+    gap: 1rem; /* gap-4 */
+    flex-direction: column; /* flex-col */
+    align-items: flex-start; /* items-start */
+  }
+  
+  @media (min-width: 640px) { /* sm breakpoint */
+    .card-link {
+      flex-direction: row; /* sm:flex-row */
+    }
+  }
+  
+  .card-logo {
+    max-width: 100px; /* Optional: Limit the logo size */
+    object-fit: contain; /* Optional: Ensure the logo fits within its container */
+  }
+  
+  .card-company-name {
+    color: #007bff; /* text-primary */
+    margin-bottom: 0.25rem; /* mb-1 */
+  }
+  
+  .card-job-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.5rem; /* mb-2 */
+  }
+  
+  .card-details {
+    color: rgba(0, 0, 0, 0.7); /* text-primary/70 */
+    font-size: 1rem; /* text-base */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* gap-2 */
+    margin-bottom: 0.5rem; /* mb-2 */
+  }
+  
+  .card-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* gap-2 */
+  }
+  
+  .card-description {
+    font-size: 1rem; /* text-base */
+    color: rgba(0, 0, 0, 0.7); /* text-primary/70 */
+  }
+  

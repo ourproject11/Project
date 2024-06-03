@@ -1,0 +1,12 @@
+.custom-button {
+    padding: 0.25rem 1rem; /* px-4 py-1 */
+    border: 1px solid #ccc; /* border */
+    font-size: 1rem; /* text-base */
+    transition: background-color 0.3s, color 0.3s; /* smooth transition for hover effect */
+  }
+  
+  .custom-button:hover {
+    background-color: #6B46C1; /* hover:bg-blue */
+    color: white; /* hover:text-white */
+  }
+  
