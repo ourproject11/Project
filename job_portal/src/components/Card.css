@@ -1,61 +1,109 @@
 .card {
-    padding: 1rem; /* Add some padding if necessary */
-    border: 1px solid #ccc; /* Optional: Add a border */
-    border-radius: 0.5rem; /* Optional: Add some border radius */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add some box shadow */
-    transition: transform 0.2s; /* Optional: Add transition effect */
-  }
-  
-  .card:hover {
-    transform: translateY(-5px); /* Optional: Add hover effect */
-  }
-  
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  text-decoration: none; /* Ensures links have no underline */
+  color: inherit; /* Inherits color from parent */
+}
+
+.card-logo {
+  max-width: 100px;
+  object-fit: contain;
+}
+
+.card-company-name {
+  color: #007bff;
+  margin-bottom: 0.25rem;
+}
+
+.card-job-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-details {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 640px) {
   .card-link {
-    display: flex;
-    gap: 1rem; /* gap-4 */
-    flex-direction: column; /* flex-col */
-    align-items: flex-start; /* items-start */
+    flex-direction: row;
   }
-  
-  @media (min-width: 640px) { /* sm breakpoint */
-    .card-link {
-      flex-direction: row; /* sm:flex-row */
-    }
-  }
-  
-  .card-logo {
-    max-width: 100px; /* Optional: Limit the logo size */
-    object-fit: contain; /* Optional: Ensure the logo fits within its container */
-  }
-  
-  .card-company-name {
-    color: #007bff; /* text-primary */
-    margin-bottom: 0.25rem; /* mb-1 */
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 0.75rem;
   }
   
   .card-job-title {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 0.5rem; /* mb-2 */
+    font-size: 1rem;
   }
-  
+
   .card-details {
-    color: rgba(0, 0, 0, 0.7); /* text-primary/70 */
-    font-size: 1rem; /* text-base */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem; /* gap-2 */
-    margin-bottom: 0.5rem; /* mb-2 */
+    font-size: 0.875rem;
   }
-  
-  .card-detail {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* gap-2 */
-  }
-  
+
   .card-description {
-    font-size: 1rem; /* text-base */
-    color: rgba(0, 0, 0, 0.7); /* text-primary/70 */
+    font-size: 0.875rem;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 0.5rem;
+  }
+
+  .card-logo {
+    max-width: 80px;
+  }
+
+  .card-company-name {
+    font-size: 0.875rem;
+  }
+
+  .card-job-title {
+    font-size: 0.875rem;
+  }
+
+  .card-details {
+    font-size: 0.75rem;
+  }
+
+  .card-description {
+    font-size: 0.75rem;
+  }
+}
