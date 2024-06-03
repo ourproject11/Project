@@ -1,12 +1,36 @@
+/* Base styles (default for all screen sizes) */
 .sidebar-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem; /* space-y-5 */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* space-y-5 */
+}
+
+.sidebar-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: bold; /* font-bold */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+/* Medium screens (tablets, 768px and above) */
+@media (min-width: 768px) {
+  .sidebar-container {
+    gap: 1.5rem; /* space-y-6 */
   }
-  
+
   .sidebar-title {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: bold; /* font-bold */
-    margin-bottom: 0.5rem; /* mb-2 */
+    font-size: 1.25rem; /* text-xl */
+    margin-bottom: 0.75rem; /* mb-3 */
   }
-  
+}
+
+/* Large screens (desktops, 1024px and above) */
+@media (min-width: 1024px) {
+  .sidebar-container {
+    gap: 1.75rem; /* space-y-7 */
+  }
+
+  .sidebar-title {
+    font-size: 1.5rem; /* text-2xl */
+    margin-bottom: 1rem; /* mb-4 */
+  }
+}

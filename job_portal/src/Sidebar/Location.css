@@ -1,20 +1,56 @@
+/* Base styles (default for all screen sizes) */
 .location-title {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 500; /* font-medium */
-    margin-bottom: 0.5rem; /* mb-2 */
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500; /* font-medium */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.side-label-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Adjust margin as needed */
+}
+
+.side-label-container input[type="radio"] {
+  margin-right: 0.5rem; /* Adjust spacing as needed */
+}
+
+.checkmark {
+  /* Add your checkmark styles here, if any */
+}
+
+/* Medium screens (tablets, 768px and above) */
+@media (min-width: 768px) {
+  .location-title {
+    font-size: 1.25rem; /* text-xl */
+    margin-bottom: 0.75rem; /* mb-3 */
   }
   
   .side-label-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem; /* Adjust margin as needed */
+    margin-bottom: 0.75rem; /* mb-3 */
   }
   
   .side-label-container input[type="radio"] {
-    margin-right: 0.5rem; /* Adjust spacing as needed */
+    margin-right: 0.75rem; /* mr-3 */
+  }
+}
+
+/* Large screens (desktops, 1024px and above) */
+@media (min-width: 1024px) {
+  .location-title {
+    font-size: 1.5rem; /* text-2xl */
+    margin-bottom: 1rem; /* mb-4 */
+  }
+  
+  .side-label-container {
+    margin-bottom: 1rem; /* mb-4 */
+  }
+  
+  .side-label-container input[type="radio"] {
+    margin-right: 1rem; /* mr-4 */
   }
   
   .checkmark {
-    /* Add your checkmark styles here, if any */
+    /* Add responsive checkmark styles here if needed */
   }
-  
+}
