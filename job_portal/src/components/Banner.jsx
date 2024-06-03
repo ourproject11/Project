@@ -39,3 +39,5 @@ const Banner = ({ query, handleInputChange }) => {
 };
 
 export default Banner;
+
+

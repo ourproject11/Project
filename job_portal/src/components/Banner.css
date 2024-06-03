@@ -10,6 +10,7 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  text-align: center; /* Center align text for better mobile view */
 }
 
 .heading {
@@ -37,6 +38,7 @@
 
 .form {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
   align-items: center;
   border-bottom: 2px solid var(--purple-color);
   padding-top: 0.5rem;
@@ -78,8 +80,24 @@
 }
 
 @media (max-width: 768px) {
+  .heading {
+    font-size: 2rem; /* Reduce heading size on smaller screens */
+  }
+
+  .subheading {
+    font-size: 1rem; /* Reduce subheading size on smaller screens */
+  }
+
   .input {
     min-width: 150px; /* Reduce minimum width on smaller screens */
   }
-}
 
+  .form {
+    flex-direction: column; /* Stack form elements vertically on smaller screens */
+  }
+
+  .button {
+    width: 100%; /* Make buttons take full width on smaller screens */
+    margin-top: 0.5rem;
+  }
+}
