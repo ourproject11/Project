@@ -19,7 +19,13 @@ body{
   }
 }
 
-.left-content, .job-content, .right-content {
+.left-content{
+  grid-column: span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-content, .right-content {
   background-color: white;
   padding: 16px;
   border-radius: 4px;
@@ -231,11 +237,14 @@ li {
 }
 
 .sidebar-items {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 20px; */
 }
 
 .sidebar-label-container {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
@@ -247,6 +256,7 @@ li {
 }
 
 .sidebar-label-container input {
+  margin-right: 10px;
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -260,6 +270,7 @@ li {
   width: 20px;
   background-color: #eee;
   border-radius: 50%;
+  margin-left: auto;
 }
 
 .all {

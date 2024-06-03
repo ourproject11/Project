@@ -5,6 +5,7 @@ import RegisterPage from "./RegisterPage";
 import Jobs from "./Jobs";
 import Card from "../components/Card";
 import Sidebar from "../Sidebar/Sidebar";
+import Newsletter from "../components/Newsletter";
 
 const Home = () => {
   const[selectedCategory , setSelectedCategory] = useState(null);
@@ -12,7 +13,7 @@ const Home = () => {
   const[query , setQuery] = useState("");
   const[isLoading , setIsLoading] = useState(true);
   const[currentPage , setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 7;
 
   useEffect(() => {
     setIsLoading(true);
@@ -58,7 +59,7 @@ const nextPage = () => {
 }
 
 //function for the previous page
-const previousPage = () => {
+const prevPage = () => {
   if(currentPage > 1){
     setCurrentPage(currentPage - 1);
   }
@@ -85,10 +86,14 @@ const filteredData = (jobs,selected , query) => {
       }) => 
       jobLocation.toLowerCase() === selected.toLowerCase() ||
       parseInt(maxPrice) <= parseInt(selected) ||
+      postingDate >= selected || 
       salaryType.toLowerCase() === selected.toLowerCase() ||
+      experienceLevel.toLowerCase() === selected.toLowerCase() ||
       employmentType.toLowerCase() === selected.toLowerCase()
     );
+    console.log(filteredJobs);
   }
+
 //slice the data based on current page
 const {startIndex , endIndex} = calculatePageRange();
 filteredJobs = filteredJobs.slice(startIndex,endIndex)
@@ -110,8 +115,8 @@ const result = filteredData(jobs, selectedCategory , query);
         </div>
         <div className="job-content">
           {
-            isLoading ? (<p>Loading.....</p>) : result.length > 0 ? (<Jobs result={result} />) : <>
-            <h3>{result.length} Jobs</h3>
+            isLoading ? (<p className="font-medium">Loading.....</p>) : result.length > 0 ? (<Jobs result={result}/>) : <>
+            <h3 className="text-lg font-bold mb-2">{result.length} Jobs</h3>
             <p>No data Found!</p>
             </>
           }
@@ -120,7 +125,7 @@ const result = filteredData(jobs, selectedCategory , query);
           {
             result.length > 0 ? (
               <div className="flex justify-center mt-4 space-x-8">
-                <button onClick={previousPage} disabled = {currentPage === 1}
+                <button onClick={prevPage} disabled = {currentPage === 1}
                 className="hover:underline">Previous</button>
                 <span className="mx-2">Page {currentPage} of {Math.ceil(filteredItems / itemsPerPage)}</span>
                 <button onClick={nextPage} disabled = {currentPage === Math.ceil(filteredItems.length / itemsPerPage)} className="hover:underline">Next</button>
@@ -129,7 +134,7 @@ const result = filteredData(jobs, selectedCategory , query);
           }
 
         </div>
-        <div className="right-content">Right</div>
+        <div className="right-content"><Newsletter/></div>
       </div>
     </div>
   );
