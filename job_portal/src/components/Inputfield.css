@@ -1,0 +1,64 @@
+/* Inputfield.css */
+
+.side-label-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+  }
+  
+  .side-label-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .side-label-container:hover .checkmark {
+    background-color: #ccc;
+  }
+  
+  .side-label-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .side-label-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .side-label-container .checkmark:after {
+    top: 7px;
+    left: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  @media (max-width: 768px) {
+    .side-label-container {
+      font-size: 14px;
+    }
+  }
+  

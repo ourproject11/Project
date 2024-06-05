@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiCalendar, FiClock, FiDollarSign, FiMapPin } from "react-icons/fi";
-import './Card.css'; // Ensure this path is correct based on your project structure
+import './Card.css';
 
 const Card = ({ data }) => {
   const { companyName, jobTitle, companyLogo, minPrice, maxPrice, salaryType, jobLocation, employmentType, postingDate, description } = data;

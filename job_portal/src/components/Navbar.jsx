@@ -27,7 +27,7 @@ const Navbar = () => {
             height="30" 
             alt="Icon description"
           />
-          <span>HireHub</span>
+          <span className='navbar-title'>HireHub</span>
         </a>
         <ul className="nav-items">
           {navItems.map(({ path, title }) => (

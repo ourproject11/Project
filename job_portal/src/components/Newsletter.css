@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 /* Base styles (default for all screen sizes) */
+=======
+/* Newsletter.css */
+
+>>>>>>> Stashed changes
 .newsletter-title {
   font-size: 1.125rem; /* text-lg */
   font-weight: bold;
@@ -45,6 +50,7 @@
   margin-top: 5rem; /* mt-20 */
 }
 
+<<<<<<< Updated upstream
 /* Medium screens (tablets, 768px and above) */
 @media (min-width: 768px) {
   .newsletter-title {
@@ -77,5 +83,18 @@
   
   .newsletter-section {
     margin-top: 6rem; /* mt-24 */
+=======
+@media (max-width: 768px) {
+  .newsletter-title {
+    font-size: 1rem; /* text-base */
+  }
+  
+  .newsletter-description {
+    font-size: 0.875rem; /* text-sm */
+  }
+  
+  .newsletter-section {
+    margin-top: 3rem; /* mt-12 */
+>>>>>>> Stashed changes
   }
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaEnvelopeOpenText, FaRocket } from 'react-icons/fa6';
-import './Newsletter.css'; // Ensure this path is correct based on your project structure
+import { FaEnvelopeOpenText, FaRocket } from 'react-icons/fa';
+import './Newsletter.css';
 
 const Newsletter = () => {
   return (
-    <div>
-      <div>
+    <div className='newsletter-container'>
+      <div className='newsletter-section'>
         <h3 className='newsletter-title'>
           <FaEnvelopeOpenText />
           Email me for jobs
