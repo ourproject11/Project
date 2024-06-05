@@ -77,7 +77,7 @@ body{
   text-decoration: none;
 }
 
-/* Nav items for large devices */
+/* Nav items for large devices
 .nav-items {
   display: none;
 }
@@ -86,17 +86,17 @@ body{
   .nav-items {
     display: flex;
     gap: 3rem; /* gap-12 */
-  }
-}
+  /* }
+} */
 
-.nav-item {
+/* .nav-item {
   font-size: 1rem; /* text-base */
-  color: var(--color-primary);
-}
+  /* color: var(--color-primary);
+} */
 
-.nav-item .active {
+/* .nav-item .active { */
   /* Add your active state styles here */
-}
+/* } */ */ */
 
 /* Signup and login */
 .auth-links {
@@ -194,22 +194,22 @@ li {
 
 /* jobs page */
 
-.card {
+/* .card {
   margin: 20px;
   border: 2px solid #ededed;
   padding: 20px;
   cursor: pointer;
-}
+} */
 
 
-.card-title {
+/* .card-title {
   margin-bottom: 1rem;
-}
+} */
 
-.card-reviews {
+/* .card-reviews {
   margin-bottom: 1rem;
   display: flex;
-}
+} */
 
 .rating-star {
   color: #d5ab55;
@@ -220,17 +220,17 @@ li {
   margin-left: 10px;
 }
 
-.card-price {
+/* .card-price {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .bag-icon {
   color: #535353;
 }
 
-.sidebar-title {
+/* .sidebar-title {
   font-size: 22px;
   font-weight: normal;
   margin-bottom: 20px;
@@ -240,9 +240,9 @@ li {
   display: flex;
   flex-direction: column;
   /* margin-top: 20px; */
-}
+/* } */ 
 
-.sidebar-label-container {
+/* .sidebar-label-container {
   display: flex;
   align-items: center;
   position: relative;
@@ -253,16 +253,16 @@ li {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+} */
 
-.sidebar-label-container input {
+/* .sidebar-label-container input {
   margin-right: 10px;
   position: absolute;
   opacity: 0;
   cursor: pointer;
-}
+} */
 
-.checkmark {
+/* .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -271,19 +271,19 @@ li {
   background-color: #eee;
   border-radius: 50%;
   margin-left: auto;
-}
+} */
 
 .all {
   background: linear-gradient(blue, crimson);
 }
 
-.sidebar-label-container:hover input ~ .checkmark {
+/* .sidebar-label-container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 .sidebar-label-container input:checked ~ .checkmark {
   background-color: #2196f3;
-}
+} */
 
 .checkmark:after {
   content: "";
@@ -291,18 +291,18 @@ li {
   display: none;
 }
 
-.sidebar-label-container input:checked ~ .checkmark:after {
+/* .sidebar-label-container input:checked ~ .checkmark:after {
   display: block;
 }
 
 .sidebar-label-container .checkmark:after {
   top: 6.4px;
   left: 6.4px;
-  width: 7px;
-  height: 7px;
+  width: 7px; */
+  /* height: 7px;
   border-radius: 50%;
   background: white;
-}
+} */
 
 .line {
   margin-top: 3rem;
@@ -313,11 +313,11 @@ li {
 
 /* create a job page */
 
-.create-job-flex{
+/* .create-job-flex{
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
+} */
 
 @media (min-width: 1024px) {
   .create-job-flex {
@@ -330,19 +330,16 @@ li {
 .create-job-input{
   display: block;
   width: 100%;
+  flex: 1;
   background-color: white;
-  padding: 1.5rem;
-  padding-left: 3rem;
-  color: #1a1a1a;
-  font-size: 1rem;
-  border: 0.6px solid #f2f2f2;
-  border-radius: 0.375rem;
-  transition: all 0.3s;
-}
-
-.create-job-input:focus {
-  border-color: #dbdbdb;
+  padding-top: 0.375rem;
+  padding-left: 0.75rem;
+  padding-bottom: 0.375rem;
+  color: #1f2937;
+  placeholder-color : #9ca3af;
   outline: none;
+  font-size: 0.875rem;
+ line-height: 1.5rem;
 }
 
 .job-btn {
@@ -362,7 +359,7 @@ li {
   margin-top: 4rem;
 }
 
-.nav-container {
+/* .nav-container {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -370,7 +367,7 @@ li {
 .nav-logo {
   font-weight: bold;
   font-size: 1.5rem;
-}
+} */
 
 .banner {
   height: 300px;

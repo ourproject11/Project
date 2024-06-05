@@ -42,7 +42,7 @@
   }
   
   .nav-item a:hover, .nav-item a.active {
-    background-color: #61dafb; /* Light blue background on hover and active */
+    background-color: #d4c8f2; /* Light blue background on hover and active */
     transform: scale(1.05); /* Slight scaling on hover */
   }
   

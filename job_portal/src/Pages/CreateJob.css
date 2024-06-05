@@ -1,0 +1,131 @@
+
+.container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 1280px) {
+    .container {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+  
+  .bg-light-gray {
+    background-color: #b397f7;
+    margin-top: 10px;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .bg-light-gray {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+  }
+  
+  .form-input {
+    display: block;
+    width: 100%;
+    flex: 1;
+    background-color: white;
+    padding-top: 0.375rem;
+    padding-left: 0.75rem;
+    padding-bottom: 0.375rem;
+    color: #1f2937;
+    outline: none;
+    font-size: 0.875rem;
+   line-height: 1.5rem;
+  }
+  
+  .form-input::placeholder {
+    color: #9ca3af;
+  }
+  
+  .flex-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  @media (min-width: 1024px) {
+    .flex-row {
+      flex-direction: row;
+    }
+  }
+  
+  .half-width {
+    width: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+    .half-width {
+      width: 50%;
+    }
+  }
+  
+/* .create-job-input{
+    display: block;
+    width: 100%;
+    flex: 1;
+    background-color: white;
+    padding-top: 0.375rem;
+    padding-left: 0.75rem;
+    padding-bottom: 0.375rem;
+    color: #1f2937;
+    placeholder-color : #9ca3af;
+    outline: none;
+    font-size: 0.875rem;
+   line-height: 1.5rem;
+  } */
+  .form-select {
+    display: block;
+    width: 100%;
+    padding-top: 0.375rem;
+    padding-left: 0.75rem;
+    padding-bottom: 0.375rem;
+    color: #1f2937;
+    outline: none;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding-left: 0.75rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    color: #1f2937;
+    outline: none;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+  
+  .button {
+    display: block;
+    margin-top: 3rem;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.125rem;
+    cursor: pointer;
+    text-align: center;
+  }
