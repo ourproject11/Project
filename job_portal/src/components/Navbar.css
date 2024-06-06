@@ -9,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
+<<<<<<< Updated upstream
   background-color: #f9fafb;
   border-radius: 25px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -21,11 +22,32 @@
   text-decoration: none;
 }
 
+=======
+  background-color: #f9fafb; /* Light background for header */
+  border-radius: 25px; /* Rounded corners for pill shape */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Logo and Title */
+.header a {
+  display: flex;
+  align-items: center;
+  color: #6B46C1; /* Purple color */
+  text-decoration: none;
+}
+
+.header a img {
+  margin-right: 10px;
+}
+
+/* Navigation Items */
+>>>>>>> Stashed changes
 .nav-items {
   display: flex;
   gap: 1.5rem;
 }
 
+<<<<<<< Updated upstream
 .nav-item a,
 .auth-links a,
 .mobile-menu a {
@@ -48,6 +70,50 @@
 
 .mobile-menu-button {
   display: none;
+=======
+.nav-item a {
+  color: #6B46C1;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px; /* Rounded corners for nav items */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item a:hover, .nav-item a.active {
+  background-color: #6B46C1; /* Purple background on hover and active */
+  color: white; /* White text on hover and active */
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Authentication Links */
+.auth-links a {
+  color: #6B46C1;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border: 2px solid #6B46C1;
+  border-radius: 25px; /* Rounded corners for auth links */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.auth-links a:hover {
+  background-color: #6B46C1; /* Purple background on hover */
+  color: white; /* White text on hover */
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu-button .icon {
+  color: #6B46C1; /* Purple color */
+  font-size: 24px; /* Adjust icon size as needed */
+>>>>>>> Stashed changes
 }
 
 .mobile-menu {
@@ -55,6 +121,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
+<<<<<<< Updated upstream
   background-color: #f9fafb;
   border-radius: 25px;
   margin-top: 10px;
@@ -84,3 +151,70 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
+=======
+  background-color: #f9fafb; /* Light background for mobile menu */
+  border-radius: 25px; /* Rounded corners for mobile menu */
+  margin-top: 10px;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  text-align: center;
+}
+
+.mobile-menu a {
+  color: #6B46C1;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px; /* Rounded corners for mobile nav items */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu a:hover, .mobile-menu a.active {
+  background-color: #6B46C1; /* Purple background on hover and active */
+  color: white; /* White text on hover and active */
+  transform: scale(1.05); /* Slight scaling on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-items {
+    display: none;
+  }
+  
+  .auth-links {
+    display: none;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+
+  .mobile-menu.hidden {
+    display: none;
+  }
+
+  .mobile-menu.visible {
+    display: flex;
+  }
+}
+
+.navbar-title {
+  background-image: linear-gradient(to right, #214559, #4682B4); /* Adjusted gradient colors */
+  -webkit-background-clip: text; /* Clip text to the background area */
+  color: transparent; /* Make text transparent */
+  font-size: 2rem; /* Adjust the font size as needed */
+  font-weight: bold; /* Increase font weight for emphasis */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow effect */
+}
+
+>>>>>>> Stashed changes

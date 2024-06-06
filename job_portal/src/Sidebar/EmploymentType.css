@@ -31,6 +31,7 @@
     display: flex;
     align-items: center;
     margin-bottom:z 0.5rem; /* Adjust margin as needed */
+<<<<<<< Updated upstream
 }
   
   .side-label-container input[type="radio"] {
@@ -47,6 +48,8 @@
   
   .side-label-container {
     margin-bottom: 1rem; /* mb-4 */
+=======
+>>>>>>> Stashed changes
   }
   
   .side-label-container input[type="radio"] {

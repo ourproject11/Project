@@ -1,4 +1,7 @@
+/* Newsletter.css */
+
 .newsletter-title {
+<<<<<<< Updated upstream
   font-size: 1.125rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -88,3 +91,63 @@
     margin-top: 3rem;
   }
 }
+=======
+  font-size: 1.125rem; /* text-lg */
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* mb-2 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+}
+
+.newsletter-description {
+  color: rgba(0, 0, 0, 0.75); /* text-primary/75 */
+  font-size: 1rem; /* text-base */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.newsletter-input-group {
+  width: 100%; /* w-full */
+  display: grid;
+  row-gap: 1rem; /* space-y-4 */
+}
+
+.newsletter-input {
+  width: 100%; /* w-full */
+  display: block; /* block */
+  padding: 0.5rem 0.75rem; /* py-2 pl-3 */
+  border: 1px solid #ccc; /* border */
+  outline: none; /* focus:outline-none */
+}
+
+.newsletter-submit {
+  width: 100%; /* w-full */
+  display: block; /* block */
+  padding: 0.5rem 0.75rem; /* py-2 pl-3 */
+  border: 1px solid #ccc; /* border */
+  outline: none; /* focus:outline-none */
+  background-color: #6B46C1; /* bg-blue */
+  border-radius: 0.125rem; /* rounded-sm */
+  color: white; /* text-white */
+  cursor: pointer; /* cursor-pointer */
+  font-weight: 600; /* font-semibold */
+}
+
+.newsletter-section {
+  margin-top: 5rem; /* mt-20 */
+}
+
+@media (max-width: 768px) {
+  .newsletter-title {
+    font-size: 1rem; /* text-base */
+  }
+  
+  .newsletter-description {
+    font-size: 0.875rem; /* text-sm */
+  }
+  
+  .newsletter-section {
+    margin-top: 3rem; /* mt-12 */
+  }
+}
+>>>>>>> Stashed changes
