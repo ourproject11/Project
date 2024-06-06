@@ -7,14 +7,53 @@ const CreateJob = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const {
     register,
-    handleSubmit,
+    handleSubmit,reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    data.skills = selectedOption;
-    console.log(data);
+  const onSubmit = async (data) => {
+    data.skills = selectedOption.map(option => option.value);
+    try {
+      const response = await fetch("http://localhost:3000/post-job", { // Changed https to http
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      if (result.acknowledged) {
+        alert("Your job was posted successfully!!");
+        reset();
+        setSelectedOption([]); // Clear selected options after successful submission
+      }
+    } catch (error) {
+      console.error('Error posting job:', error);
+      alert("There was an error posting the job. Please try again.");
+      reset();
+    }
   };
+  
+  // const onSubmit = (data) => {
+  //   data.skills = selectedOption;
+  //   // console.log(data);
+  //   fetch("https://localhost:3000/post-job",{
+  //     method:"POST",
+  //     headers:{'content-type': 'application/json'},
+  //     body: JSON.stringify(data)
+  //   })
+  //   .then((res)=>res.json())
+  //   .then((result)=>{
+  //     console.log(result);
+  //     // if(result.acknowledged==true){
+  //     //   alert("Your job Posted successfully!!")
+  //     // }
+  //     // reset()
+  //   });
+  // };
 
   const options = [
     { value: "JavaScript", label: "JavaScript" },

@@ -27,14 +27,11 @@
   }
   
   .side-label-container {
-<<<<<<< Updated upstream
     margin-bottom: 0.75rem; /* mb-3 */
-=======
     display: flex;
     align-items: center;
     margin-bottom:z 0.5rem; /* Adjust margin as needed */
->>>>>>> Stashed changes
-  }
+}
   
   .side-label-container input[type="radio"] {
     margin-right: 0.75rem; /* mr-3 */

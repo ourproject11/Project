@@ -1,100 +1,90 @@
-<<<<<<< Updated upstream
-/* Base styles (default for all screen sizes) */
-=======
-/* Newsletter.css */
-
->>>>>>> Stashed changes
 .newsletter-title {
-  font-size: 1.125rem; /* text-lg */
+  font-size: 1.125rem;
   font-weight: bold;
-  margin-bottom: 0.5rem; /* mb-2 */
+  margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* gap-2 */
+  gap: 0.5rem;
 }
 
 .newsletter-description {
-  color: rgba(0, 0, 0, 0.75); /* text-primary/75 */
-  font-size: 1rem; /* text-base */
-  margin-bottom: 1rem; /* mb-4 */
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .newsletter-input-group {
-  width: 100%; /* w-full */
+  width: 100%;
   display: grid;
-  row-gap: 1rem; /* space-y-4 */
+  row-gap: 1rem;
 }
 
-.newsletter-input {
-  width: 100%; /* w-full */
-  display: block; /* block */
-  padding: 0.5rem 0.75rem; /* py-2 pl-3 */
-  border: 1px solid #ccc; /* border */
-  outline: none; /* focus:outline-none */
+.newsletter-input,
+.newsletter-submit {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
 }
 
 .newsletter-submit {
-  width: 100%; /* w-full */
-  display: block; /* block */
-  padding: 0.5rem 0.75rem; /* py-2 pl-3 */
-  border: 1px solid #ccc; /* border */
-  outline: none; /* focus:outline-none */
-  background-color: #6B46C1; /* bg-blue */
-  border-radius: 0.125rem; /* rounded-sm */
-  color: white; /* text-white */
-  cursor: pointer; /* cursor-pointer */
-  font-weight: 600; /* font-semibold */
+  background-color: #6B46C1;
+  border-radius: 0.125rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .newsletter-section {
-  margin-top: 5rem; /* mt-20 */
+  margin-top: 5rem;
 }
 
-<<<<<<< Updated upstream
-/* Medium screens (tablets, 768px and above) */
 @media (min-width: 768px) {
   .newsletter-title {
-    font-size: 1.25rem; /* text-xl */
+    font-size: 1.25rem;
   }
   
   .newsletter-description {
-    font-size: 1.125rem; /* text-lg */
-  }
-  
-  .newsletter-input-group {
-    row-gap: 1.5rem; /* space-y-6 */
+    font-size: 1rem;
   }
   
   .newsletter-input,
   .newsletter-submit {
-    padding: 0.75rem 1rem; /* py-3 pl-4 */
+    padding: 0.75rem 1rem;
+  }
+  
+  .newsletter-input-group {
+    row-gap: 1.5rem;
+  }
+
+  .newsletter-section {
+    margin-top: 6rem;
   }
 }
 
-/* Large screens (desktops, 1024px and above) */
 @media (min-width: 1024px) {
   .newsletter-title {
-    font-size: 1.5rem; /* text-2xl */
+    font-size: 1.5rem;
   }
   
   .newsletter-description {
-    font-size: 1.25rem; /* text-xl */
+    font-size: 1.25rem;
   }
   
   .newsletter-section {
-    margin-top: 6rem; /* mt-24 */
-=======
+    margin-top: 6rem;
+  }
+}
+
 @media (max-width: 768px) {
   .newsletter-title {
-    font-size: 1rem; /* text-base */
+    font-size: 1rem;
   }
   
   .newsletter-description {
-    font-size: 0.875rem; /* text-sm */
+    font-size: 0.875rem;
   }
   
   .newsletter-section {
-    margin-top: 3rem; /* mt-12 */
->>>>>>> Stashed changes
+    margin-top: 3rem;
   }
 }
