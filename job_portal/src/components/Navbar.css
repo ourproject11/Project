@@ -10,6 +10,7 @@
   align-items: center;
   padding: 1rem 1.5rem;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   background-color: #f9fafb;
   border-radius: 25px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -23,6 +24,8 @@
 }
 
 =======
+=======
+>>>>>>> Stashed changes
   background-color: #f9fafb; /* Light background for header */
   border-radius: 25px; /* Rounded corners for pill shape */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -41,12 +44,16 @@
 }
 
 /* Navigation Items */
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 .nav-items {
   display: flex;
   gap: 1.5rem;
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .nav-item a,
 .auth-links a,
@@ -71,6 +78,8 @@
 .mobile-menu-button {
   display: none;
 =======
+=======
+>>>>>>> Stashed changes
 .nav-item a {
   color: #6B46C1;
   text-decoration: none;
@@ -113,6 +122,9 @@
 .mobile-menu-button .icon {
   color: #6B46C1; /* Purple color */
   font-size: 24px; /* Adjust icon size as needed */
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 
@@ -121,6 +133,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   background-color: #f9fafb;
   border-radius: 25px;
@@ -152,6 +165,8 @@
   }
 }
 =======
+=======
+>>>>>>> Stashed changes
   background-color: #f9fafb; /* Light background for mobile menu */
   border-radius: 25px; /* Rounded corners for mobile menu */
   margin-top: 10px;
@@ -217,4 +232,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow effect */
 }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

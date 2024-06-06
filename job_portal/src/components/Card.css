@@ -2,6 +2,7 @@
 
 .card {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
@@ -16,6 +17,8 @@
   transform: translateY(-5px);
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   background-color: #f7f7f7;
   border-radius: 10px;
   padding: 20px;
@@ -24,6 +27,7 @@
   transition: box-shadow 0.3s ease;
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .card-link {
   display: flex;
@@ -43,6 +47,8 @@
   color: #007bff;
   margin-bottom: 0.25rem;
 =======
+=======
+>>>>>>> Stashed changes
 .card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -64,11 +70,15 @@
 
 .card-company-name {
   margin-bottom: 5px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   font-weight: bold;
 }
 
 .card-job-title {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
@@ -94,6 +104,8 @@
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.7);
 =======
+=======
+>>>>>>> Stashed changes
   margin-bottom: 10px;
 }
 
@@ -114,12 +126,16 @@
 }
 
 .card-description {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   line-height: 1.5;
 }
 
 @media (max-width: 768px) {
   .card {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     padding: 0.75rem;
   }
@@ -143,15 +159,21 @@
   .card-logo {
     max-width: 80px;
 =======
+=======
+>>>>>>> Stashed changes
     padding: 15px;
   }
 
   .card-logo {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     width: 60px;
     height: 60px;
     margin-right: 15px;
   }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
   .card-company-name,
@@ -164,6 +186,8 @@
   .card-description {
     padding: 10px;
   }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 }
