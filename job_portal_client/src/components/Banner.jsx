@@ -5,7 +5,7 @@ const Banner = ({ query, handleInputChange }) => {
   return (
     <div className='container'>
       <h1 className='heading'>
-        Discover your<span className='highlight'> next career</span>  opportunity today
+        Discover your<span className='highlight'> next career</span>  move
       </h1>
       <p className='subheading'>
       Countless job opportunities across all sectors are available for you.
@@ -21,7 +21,7 @@ const Banner = ({ query, handleInputChange }) => {
             onChange={handleInputChange}
             value={query}
           />
-           <button type="submit" className="button">Search</button>
+           {/* <button type="submit" className="button">Search</button> */}
 
           <input
             type='text'
@@ -31,7 +31,7 @@ const Banner = ({ query, handleInputChange }) => {
             className='input'
             // value={query}
           />
-           <button type="submit" className="button">Search</button>
+           {/* <button type="submit" className="button">Search</button> */}
         </form>
       </div>
     </div>

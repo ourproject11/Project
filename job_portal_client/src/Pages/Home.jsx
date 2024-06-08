@@ -127,7 +127,7 @@ const result = filteredData(jobs, selectedCategory , query);
               <div className="flex justify-center mt-4 space-x-8">
                 <button onClick={prevPage} disabled = {currentPage === 1}
                 className="hover:underline">Previous</button>
-                <span className="mx-2">Page {currentPage} of {Math.ceil(filteredItems / itemsPerPage)}</span>
+                <span className="mx-2">Page {currentPage} of {Math.ceil(filteredItems.length / itemsPerPage)}</span>
                 <button onClick={nextPage} disabled = {currentPage === Math.ceil(filteredItems.length / itemsPerPage)} className="hover:underline">Next</button>
               </div>
             ) : ""

@@ -124,8 +124,8 @@ body{
 }
 
 .auth-links .signup {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: #6b46c1;
 }
 
 /* Mobile menu */
