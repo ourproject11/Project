@@ -1,33 +1,11 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
+/* Header Styles */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  background-color: #f9fafb;
-  border-radius: 25px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header a {
-  display: flex;
-  align-items: center;
-  color: #6B46C1;
-  text-decoration: none;
-}
-
-=======
-=======
->>>>>>> Stashed changes
   background-color: #f9fafb; /* Light background for header */
-  border-radius: 25px; /* Rounded corners for pill shape */
+  border-radius: 25px; /* Rounded corners for header */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
@@ -44,42 +22,11 @@
 }
 
 /* Navigation Items */
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 .nav-items {
   display: flex;
   gap: 1.5rem;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-.nav-item a,
-.auth-links a,
-.mobile-menu a {
-  color: #6B46C1;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-item a:hover,
-.nav-item a.active,
-.auth-links a:hover,
-.mobile-menu a:hover,
-.mobile-menu a.active {
-  background-color: #6B46C1;
-  color: white;
-  transform: scale(1.05);
-}
-
-.mobile-menu-button {
-  display: none;
-=======
-=======
->>>>>>> Stashed changes
 .nav-item a {
   color: #6B46C1;
   text-decoration: none;
@@ -122,51 +69,14 @@
 .mobile-menu-button .icon {
   color: #6B46C1; /* Purple color */
   font-size: 24px; /* Adjust icon size as needed */
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
 
+/* Mobile Menu */
 .mobile-menu {
   display: none;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  background-color: #f9fafb;
-  border-radius: 25px;
-  margin-top: 10px;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .nav-items,
-  .auth-links {
-    display: none;
-  }
-
-  .mobile-menu-button {
-    display: block;
-  }
-
-  .mobile-menu.visible {
-    display: flex;
-  }
-
-  .navbar-title {
-    background-image: linear-gradient(to right, #214559, #4682B4);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-}
-=======
-=======
->>>>>>> Stashed changes
   background-color: #f9fafb; /* Light background for mobile menu */
   border-radius: 25px; /* Rounded corners for mobile menu */
   margin-top: 10px;
@@ -223,6 +133,7 @@
   }
 }
 
+/* Navbar Title */
 .navbar-title {
   background-image: linear-gradient(to right, #214559, #4682B4); /* Adjusted gradient colors */
   -webkit-background-clip: text; /* Clip text to the background area */
@@ -231,8 +142,3 @@
   font-weight: bold; /* Increase font weight for emphasis */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow effect */
 }
-
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
