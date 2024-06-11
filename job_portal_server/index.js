@@ -54,6 +54,15 @@ async function run() {
       res.send(jobs);
     })
 
+    //get single job using id
+    app.get("/all-jobs/:id" , async(req,res) => {
+      const id = req.params.id;
+      const jobs = await jobsCollections.findOne({
+        _id : new ObjectId(id)
+      })
+      res.send(job)
+    })
+
     //get jobs by email
     app.get("/myJobs/:email",async(req, res)=>{
       console.log(req.params.email)
