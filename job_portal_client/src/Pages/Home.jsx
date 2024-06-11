@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
-// import LoginPage from "./Login";
 import RegisterPage from "./RegisterPage";
 import Jobs from "./Jobs";
 import Card from "../components/Card";
@@ -20,7 +19,6 @@ const Home = () => {
     fetch("http://localhost:3000/all-jobs")
     .then(res => res.json())
     .then((data) => {
-      // console.log(data)
       setJobs(data);
       setIsLoading(false);
     })
@@ -74,6 +72,7 @@ const filteredData = (jobs,selected , query) => {
   //filtering input items
   if(query){
     filteredJobs = filteredJobs.filter((job) => 
+    job.jobTitle &&
     job.jobTitle.toLowerCase().includes(query.toLowerCase())
   );
   }
@@ -84,20 +83,19 @@ const filteredData = (jobs,selected , query) => {
     filteredJobs = filteredJobs.filter(
       ({jobLocation , maxPrice , experienceLevel , salaryType , employmentType , postingDate,
       }) => 
-      jobLocation.toLowerCase() === selected.toLowerCase() ||
-      parseInt(maxPrice) <= parseInt(selected) ||
-      postingDate >= selected || 
-      salaryType.toLowerCase() === selected.toLowerCase() ||
-      experienceLevel.toLowerCase() === selected.toLowerCase() ||
-      employmentType.toLowerCase() === selected.toLowerCase()
+      (jobLocation && jobLocation.toLowerCase() === selected.toLowerCase()) ||
+      (maxPrice && parseInt(maxPrice) <= parseInt(selected)) ||
+      (postingDate  && postingDate >= selected) || 
+      (salaryType && salaryType.toLowerCase() === selected.toLowerCase()) ||
+      (experienceLevel && experienceLevel.toLowerCase() === selected.toLowerCase()) ||
+      (employmentType && employmentType.toLowerCase() === selected.toLowerCase())
     );
-    console.log(filteredJobs);
   }
 
 //slice the data based on current page
 const {startIndex , endIndex} = calculatePageRange();
 filteredJobs = filteredJobs.slice(startIndex,endIndex)
-  return filteredJobs.map((data , i) => <Card key={i} data = {data}/>)
+  return filteredJobs.map((data , i) => <Card key={i} data = {data} />);
 };
 
 const result = filteredData(jobs, selectedCategory , query);
@@ -105,10 +103,6 @@ const result = filteredData(jobs, selectedCategory , query);
   return (
     <div>
       <Banner query={query} handleInputChange={handleInputChange} />
-      {/* Depending on the state of query, either render LoginPage or RegisterPage */}
-      {/* {query === "login" ? <LoginPage /> : <RegisterPage />} */}
-
-
       <div className="main-content">
         <div className="left-content">
           <Sidebar handleChange={handleChange} handleClick={handleClick} />
