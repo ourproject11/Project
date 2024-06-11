@@ -19,6 +19,8 @@
 
 .header a img {
   margin-right: 10px;
+  width: 51px;
+  height: 46px;
 }
 
 /* Navigation Items */
@@ -29,6 +31,7 @@
 
 .nav-item a {
   color: #6B46C1;
+  font-size: 21px;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 25px; /* Rounded corners for nav items */
@@ -135,10 +138,10 @@
 
 /* Navbar Title */
 .navbar-title {
-  background-image: linear-gradient(to right, #214559, #4682B4); /* Adjusted gradient colors */
+  background-image: linear-gradient(to right, #000, #6b46c1); /* Adjusted gradient colors */
   -webkit-background-clip: text; /* Clip text to the background area */
   color: transparent; /* Make text transparent */
-  font-size: 2rem; /* Adjust the font size as needed */
+  font-size: 2.5rem; /* Adjust the font size as needed */
   font-weight: bold; /* Increase font weight for emphasis */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow effect */
 }

@@ -1,35 +1,84 @@
-import React from 'react'
-import { GoogleAuthProvider , signInWithPopup } from "firebase/auth";
-import app from '../firebase/firebase.config';
-
-import { getAuth } from "firebase/auth";
+import React , { useState } from 'react';
+import { auth } from '../firebase/firebase.config';
+import {getAuth, signInWithEmailAndPassword ,GoogleAuthProvider , signInWithPopup } from "firebase/auth";
+import './Login.css';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
 const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
-const handleLogin = () => {
-    signInWithPopup(auth , googleProvider) .then((result) => {
-        const user = result.user;
-        console.log(user)
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-}
 
-  return (
-    <div className='h-screen w-full flex items-center justify-center'>
-        <button className='bg-blue px-8 py-2 text-white' onClick={handleLogin}>Login</button>
-      
+const handleLogin = async (event) => {
+  event.preventDefault();
+  setLoading(true);
+  setError('');
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    // Handle successful login
+  } catch (err) {
+    setError('Failed to log in. Please check your email and password.');
+  } finally {
+    setLoading(false);
+  }
+};
+
+const handleGoogleLogin = async () => {
+  setLoading(true);
+  setError('');
+
+  try {
+    await signInWithPopup(auth, googleProvider);
+    // Handle successful login
+  } catch (err) {
+    setError('Failed to log in with Google.');
+  } finally {
+    setLoading(false);
+  }
+};
+
+return (
+  <div className="login-container">
+    <h2 className="login-heading">Log In</h2>
+    <form className="login-form" onSubmit={handleLogin}>
+      <div className="input-group">
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      {error && <p className="error-message">{error}</p>}
+      <button type="submit" className="login-button" disabled={loading}>
+        {loading ? 'Logging in...' : 'Log In'}
+      </button>
+    </form>
+    <div className="social-login">
+      <button className="google-login" onClick={handleGoogleLogin} disabled={loading}>
+        Log In with Google
+      </button>
     </div>
-  )
-}
-
-export default Login
+    <div className="login-footer">
+      <a href="/register" className="register-link">Don't have an account? Register</a>
+    </div>
+  </div>
+);
+};
+export default Login;
