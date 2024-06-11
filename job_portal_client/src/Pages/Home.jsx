@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
-import LoginPage from "./LoginPage";
+// import LoginPage from "./Login";
 import RegisterPage from "./RegisterPage";
 import Jobs from "./Jobs";
 import Card from "../components/Card";
