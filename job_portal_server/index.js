@@ -74,7 +74,33 @@ async function run() {
         res.status(500).json({ message: "Internal Server Error" });
       }
     });
-    
+
+    app.post("/apply-job/:id", async (req, res) => {
+      const id = req.params.id;
+      const applicationData = req.body;
+      const job = await jobsCollections.findOne({ _id: new ObjectId(id) });
+
+      if (!job) {
+        return res.status(404).send({ message: "Job not found" });
+      }
+
+      // Validate application data here
+      if (!isValidApplication(applicationData)) {
+        return res.status(400).send({ message: "Invalid application data" });
+      }
+
+      const applicationsCollection = db.collection("jobApplications");
+      applicationData.jobId = id;
+      applicationData.appliedAt = new Date();
+
+      const result = await applicationsCollection.insertOne(applicationData);
+
+      if (result.insertedId) {
+        return res.status(200).send({ message: "Application submitted successfully" });
+      } else {
+        return res.status(500).send({ message: "Failed to submit application" });
+      }
+    });
 
     app.get("/myJobs/:email", async (req, res) => {
       const jobs = await jobsCollections.find({ postedBy: req.params.email }).toArray();
@@ -96,6 +122,17 @@ async function run() {
 }
 
 run().catch(console.dir);
+
+function isValidApplication(applicationData) {
+  // Validate application data here
+  // For example, check if all required fields are present and valid
+  return (
+    applicationData.firstName &&
+    applicationData.lastName &&
+    applicationData.email &&
+    applicationData.resume
+  );
+}
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
