@@ -43,6 +43,7 @@
 
 .register-button:hover {
   background-color: #582bc0;
+  color: white;
 }
 
 .register-login-now {

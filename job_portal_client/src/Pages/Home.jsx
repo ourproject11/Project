@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import Banner from '../components/Banner';
-import Jobs from './Jobs';
-import Card from '../components/Card';
-import Sidebar from '../Sidebar/Sidebar';
-import Newsletter from '../components/Newsletter';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Banner from "../components/Banner";
+import Jobs from "./Jobs";
+import Card from "../components/Card";
+import Sidebar from "../Sidebar/Sidebar";
+import Newsletter from "../components/Newsletter";
 
-const Home = () => {
+const Home = ({ role }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 7;
@@ -16,11 +17,11 @@ const Home = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch("http://localhost:3000/all-jobs")
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((data) => {
         setJobs(data);
         setIsLoading(false);
-      })
+      });
   }, []);
 
   // Handle input change
@@ -29,38 +30,40 @@ const Home = () => {
   };
 
   // Filter jobs by title
-  const filteredItems = jobs.filter((job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+  const filteredItems = jobs.filter(
+    (job) =>
+      job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1
+  );
 
-  // Radio button filtering
+  // Radio button and button-based filtering
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
-  }
+  };
 
-  // Button based filtering
   const handleClick = (event) => {
     setSelectedCategory(event.target.value);
-  }
+  };
 
   // Calculate the index range for pagination
   const calculatePageRange = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return { startIndex, endIndex };
-  }
+  };
 
   // Function for next page
   const nextPage = () => {
     if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
       setCurrentPage(currentPage + 1);
     }
-  }
+  };
 
   // Function for previous page
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
-  }
+  };
 
   // Main function to filter and paginate data
   const filteredData = (jobs, selected, query) => {
@@ -68,22 +71,34 @@ const Home = () => {
 
     // Filtering by input query
     if (query) {
-      filteredJobs = filteredJobs.filter((job) =>
-        job.jobTitle &&
-        job.jobTitle.toLowerCase().includes(query.toLowerCase())
+      filteredJobs = filteredJobs.filter(
+        (job) =>
+          job.jobTitle &&
+          job.jobTitle.toLowerCase().includes(query.toLowerCase())
       );
     }
 
     // Filtering by selected category
     if (selected) {
       filteredJobs = filteredJobs.filter(
-        ({ jobLocation, maxPrice, experienceLevel, salaryType, employmentType, postingDate }) =>
-          (jobLocation && jobLocation.toLowerCase() === selected.toLowerCase()) ||
+        ({
+          jobLocation,
+          maxPrice,
+          experienceLevel,
+          salaryType,
+          employmentType,
+          postingDate,
+        }) =>
+          (jobLocation &&
+            jobLocation.toLowerCase() === selected.toLowerCase()) ||
           (maxPrice && parseInt(maxPrice) <= parseInt(selected)) ||
           (postingDate && postingDate >= selected) ||
-          (salaryType && salaryType.toLowerCase() === selected.toLowerCase()) ||
-          (experienceLevel && experienceLevel.toLowerCase() === selected.toLowerCase()) ||
-          (employmentType && employmentType.toLowerCase() === selected.toLowerCase())
+          (salaryType &&
+            salaryType.toLowerCase() === selected.toLowerCase()) ||
+          (experienceLevel &&
+            experienceLevel.toLowerCase() === selected.toLowerCase()) ||
+          (employmentType &&
+            employmentType.toLowerCase() === selected.toLowerCase())
       );
     }
 
@@ -146,10 +161,31 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Newsletter */}
-      <Newsletter />
+        {/* Newsletter */}
+        <Newsletter />
+
+        {/* Role-specific content */}
+        <div className="role-specific-content">
+          {role === "candidate" && (
+            <div className="candidate-content">
+              <h2>Candidate Specific Content</h2>
+              {/* Add any candidate-specific content here */}
+            </div>
+          )}
+          {role === "employee" && (
+            <div className="employee-content">
+              <h2>Employee Specific Content</h2>
+              <nav>
+                <Link to="/my-jobs">My Jobs</Link>
+                <Link to="/salary">Salary</Link>
+                <Link to="/post-job">Post a Job</Link>
+              </nav>
+              {/* Add any employee-specific content here */}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
+import { db, doc, setDoc } from 'firebase/firestore'; // Ensure the correct imports
 
 const RegisterPage = () => {
   const [registerAs, setRegisterAs] = useState('candidate');
@@ -20,7 +21,16 @@ const RegisterPage = () => {
     setSuccess(false);
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userId = userCredential.user.uid;
+
+      await setDoc(doc(db, 'users', userId), {
+        name: name,
+        email: email,
+        phone: phone,
+        role: registerAs // Set the role based on the selection
+      });
+
       console.log('Registration successful');
       setSuccess(true);
     } catch (err) {
