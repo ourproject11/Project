@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap');
 
-body{
+body {
   font-family: 'DM Sans', sans-serif;
+  background-color: #F3F4F6;
+  color: #1F2937;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main-content {
   background-color: #FAFAFA;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  padding: 12px 4px;
+  gap: 16px;
+  padding: 24px 8px;
 }
 
 @media (min-width: 1024px) {
@@ -19,7 +24,7 @@ body{
   }
 }
 
-.left-content{
+.left-content {
   grid-column: span 1 / span 1;
   display: flex;
   flex-direction: column;
@@ -27,12 +32,9 @@ body{
 
 .job-content, .right-content {
   background-color: white;
-  padding: 16px;
-  border-radius: 4px;
-}
-
-.left-content {
-  grid-column: span 1 / span 1;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .job-content {
@@ -66,6 +68,8 @@ body{
   align-items: center;
   padding-top: 1.5rem; /* py-6 */
   padding-bottom: 1.5rem; /* py-6 */
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
 }
 
 .header a {
@@ -73,11 +77,11 @@ body{
   align-items: center;
   gap: 0.5rem; /* gap-2 */
   font-size: 1.5rem; /* text-2xl */
-  color: black;
+  color: #111827;
   text-decoration: none;
 }
 
-/* Nav items for large devices
+/* Nav items for large devices */
 .nav-items {
   display: none;
 }
@@ -86,17 +90,18 @@ body{
   .nav-items {
     display: flex;
     gap: 3rem; /* gap-12 */
-  /* }
-} */
+  }
+}
 
-/* .nav-item {
+.nav-item {
   font-size: 1rem; /* text-base */
-  /* color: var(--color-primary);
-} */
+  color: #4B5563;
+}
 
-/* .nav-item .active { */
-  /* Add your active state styles here */
-/* } */ */ */
+.nav-item .active {
+  color: #3575E2;
+  font-weight: 500;
+}
 
 /* Signup and login */
 .auth-links {
@@ -167,8 +172,7 @@ body{
   color: white;
 }
 
-
-.active{
+.active {
   color: #3575E2;
   font-weight: 500;
 }
@@ -185,7 +189,6 @@ li {
   padding: 10px 20px;
   margin-right: 6px;
   background: transparent;
-  border: none;
   border: 0.6px solid #ccc;
   border-radius: 5px;
   color: #323232;
@@ -221,10 +224,10 @@ li {
 .sidebar-items {
   display: flex;
   flex-direction: column;
-  /* margin-top: 20px; */
-/* } */ 
+  margin-top: 20px;
+} */
 
-/* .sidebar-label-container {
+.sidebar-label-container {
   display: flex;
   align-items: center;
   position: relative;
@@ -235,16 +238,16 @@ li {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-} */
+}
 
-/* .sidebar-label-container input {
+.sidebar-label-container input {
   margin-right: 10px;
   position: absolute;
   opacity: 0;
   cursor: pointer;
-} */
+}
 
-/* .checkmark {
+.checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -253,19 +256,19 @@ li {
   background-color: #eee;
   border-radius: 50%;
   margin-left: auto;
-} */
+}
 
 .all {
   background: linear-gradient(blue, crimson);
 }
 
-/* .sidebar-label-container:hover input ~ .checkmark {
+.sidebar-label-container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 .sidebar-label-container input:checked ~ .checkmark {
   background-color: #2196f3;
-} */
+}
 
 .checkmark:after {
   content: "";
@@ -273,33 +276,30 @@ li {
   display: none;
 }
 
-/* .sidebar-label-container input:checked ~ .checkmark:after {
+.sidebar-label-container input:checked ~ .checkmark:after {
   display: block;
 }
 
 .sidebar-label-container .checkmark:after {
   top: 6.4px;
   left: 6.4px;
-  width: 7px; */
-  /* height: 7px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: white;
-} */
+}
 
 .line {
   margin-top: 3rem;
   border-color: #f7f7f7;
 }
 
-
-
 /* create a job page */
-
-/* .create-job-flex{
+.create-job-flex {
   display: flex;
   flex-direction: column;
   gap: 8px;
-} */
+}
 
 @media (min-width: 1024px) {
   .create-job-flex {
@@ -309,7 +309,7 @@ li {
   }
 }
 
-.create-job-input{
+.create-job-input {
   display: block;
   width: 100%;
   flex: 1;
@@ -318,10 +318,10 @@ li {
   padding-left: 0.75rem;
   padding-bottom: 0.375rem;
   color: #1f2937;
-  placeholder-color : #9ca3af;
+  placeholder-color: #9ca3af;
   outline: none;
   font-size: 0.875rem;
- line-height: 1.5rem;
+  line-height: 1.5rem;
 }
 
 .job-btn {
@@ -341,7 +341,7 @@ li {
   margin-top: 4rem;
 }
 
-/* .nav-container {
+.nav-container {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -349,7 +349,7 @@ li {
 .nav-logo {
   font-weight: bold;
   font-size: 1.5rem;
-} */
+}
 
 .banner {
   height: 300px;
@@ -388,4 +388,25 @@ li {
 
 .hero-cta:hover {
   background-color: #f2f2f2;
+}
+
+/* Global link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ddd;
 }

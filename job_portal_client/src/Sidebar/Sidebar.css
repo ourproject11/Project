@@ -1,36 +1,23 @@
-/* Base styles (default for all screen sizes) */
+/* Sidebar.css */
+
 .sidebar-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem; /* space-y-5 */
+  width: 250px; /* Adjust width as needed */
+  height: calc(100vh - 100px); /* Adjust height as needed */
+  overflow-y: auto;
+  border-right: 1px solid #ccc; /* Optional: Add border */
 }
 
 .sidebar-title {
-  font-size: 1.125rem; /* text-lg */
-  font-weight: bold; /* font-bold */
-  margin-bottom: 0.5rem; /* mb-2 */
+  padding: 10px;
+  background-color: #f0f0f0; /* Example background color */
+  border-bottom: 1px solid #ccc; /* Optional: Add border */
 }
 
-/* Medium screens (tablets, 768px and above) */
-@media (min-width: 768px) {
-  .sidebar-container {
-    gap: 1.5rem; /* space-y-6 */
-  }
-
-  .sidebar-title {
-    font-size: 1.25rem; /* text-xl */
-    margin-bottom: 0.75rem; /* mb-3 */
-  }
+.filter-scroll {
+  padding: 10px;
 }
 
-/* Large screens (desktops, 1024px and above) */
-@media (min-width: 1024px) {
-  .sidebar-container {
-    gap: 1.75rem; /* space-y-7 */
-  }
-
-  .sidebar-title {
-    font-size: 1.5rem; /* text-2xl */
-    margin-bottom: 1rem; /* mb-4 */
-  }
+.filter-scroll label {
+  display: block;
+  margin-bottom: 8px;
 }

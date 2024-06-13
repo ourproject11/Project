@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import './CreateJob.css';
 import CreatableSelect from 'react-select/creatable';
 import { useState } from "react";
 
@@ -7,28 +6,29 @@ const CreateJob = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const {
     register,
-    handleSubmit,reset,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
     data.skills = selectedOption.map(option => option.value);
     try {
-      const response = await fetch("http://localhost:3000/post-job", { // Changed https to http
+      const response = await fetch("http://localhost:3000/post-job", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       const result = await response.json();
       if (result.acknowledged) {
         alert("Your job was posted successfully!!");
         reset();
-        setSelectedOption([]); // Clear selected options after successful submission
+        setSelectedOption([]);
       }
     } catch (error) {
       console.error('Error posting job:', error);
@@ -36,24 +36,6 @@ const CreateJob = () => {
       reset();
     }
   };
-  
-  // const onSubmit = (data) => {
-  //   data.skills = selectedOption;
-  //   // console.log(data);
-  //   fetch("https://localhost:3000/post-job",{
-  //     method:"POST",
-  //     headers:{'content-type': 'application/json'},
-  //     body: JSON.stringify(data)
-  //   })
-  //   .then((res)=>res.json())
-  //   .then((result)=>{
-  //     console.log(result);
-  //     // if(result.acknowledged==true){
-  //     //   alert("Your job Posted successfully!!")
-  //     // }
-  //     // reset()
-  //   });
-  // };
 
   const options = [
     { value: "JavaScript", label: "JavaScript" },
@@ -78,124 +60,125 @@ const CreateJob = () => {
   ];
 
   return (
-    <div className="container">
-      <div className="bg-light-gray">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          {/* 1st row */}
-          <div className="flex-row">
-            <div className="half-width">
-              <label className="form-label">Job Title</label>
+    <div className="bg-gradient-to-r from-lightBlue-300 to-black min-h-screen flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
+        <h2 className="text-3xl font-semibold text-center text-black mb-8">Create a Job</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          {/* Job Title and Company Name */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Job Title</label>
               <input
                 type="text"
-                defaultValue={"Web Developer"}
-                {...register("jobTitle")}
-                className="form-input"
+                {...register("jobTitle", { required: true })}
+                className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
+                placeholder="Enter job title"
               />
+              {errors.jobTitle && <span className="text-red-500 text-xs">This field is required</span>}
             </div>
-            <div className="half-width">
-              <label className="form-label">Company Name</label>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Company Name</label>
               <input
                 type="text"
-                placeholder="Ex: Microsoft"
-                {...register("companyName")}
-                className="form-input"
+                {...register("companyName", { required: true })}
+                className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
+                placeholder="Enter company name"
               />
+              {errors.companyName && <span className="text-red-500 text-xs">This field is required</span>}
             </div>
           </div>
 
-          {/* 2nd row */}
-          <div className="flex-row">
-            <div className="half-width">
-              <label className="form-label">Minimum Salary</label>
+          {/* Salary and Salary Type */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Minimum Salary</label>
               <input
                 type="text"
-                placeholder="$20k"
                 {...register("minPrice")}
-                className="form-input"
+                className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
+                placeholder="Enter minimum salary"
               />
             </div>
-            <div className="half-width">
-              <label className="form-label">Maximum Salary</label>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Maximum Salary</label>
               <input
                 type="text"
-                placeholder="$120k"
                 {...register("maxPrice")}
-                className="form-input"
+                className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
+                placeholder="Enter maximum salary"
               />
             </div>
-          </div>
-
-          {/* 3rd row */}
-          <div className="flex-row">
-            <div className="half-width">
-              <label className="form-label">Salary Type</label>
-              <select {...register("salaryType")} className="form-select">
-                <option value="">Choose your salary</option>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Salary Type</label>
+              <select {...register("salaryType")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
+                <option value="">Choose salary type</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Monthly">Monthly</option>
                 <option value="Yearly">Yearly</option>
               </select>
             </div>
-            <div className="half-width">
-              <label className="form-label">Job Location</label>
+          </div>
+
+          {/* Job Location and Posting Date */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Job Location</label>
               <input
                 type="text"
-                placeholder="Ex: India"
                 {...register("jobLocation")}
-                className="form-input"
+                className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
+                placeholder="Enter job location"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Posting Date</label>
+              <input
+                type="date"
+                {...register("postingDate")}
+                className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
               />
             </div>
           </div>
 
-          {/* 4th row */}
-          <div className="flex-row">
-            <div className="half-width">
-              <label className="form-label">Job Posting Date</label>
-              <input
-                type="date"
-                placeholder="Ex: 2023-11-11"
-                {...register("postingDate")}
-                className="form-input"
-              />
-            </div>
-            <div className="half-width">
-              <label className="form-label">Experience Level</label>
-              <select {...register("experiencelevel")} className="form-select">
-                <option value="">Choose your experience</option>
+          {/* Experience Level and Skills Set */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Experience Level</label>
+              <select {...register("experiencelevel")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
+                <option value="">Choose experience level</option>
                 <option value="No Experience">No experience</option>
                 <option value="Internship">Internship</option>
                 <option value="Work Remotely">Work Remotely</option>
               </select>
             </div>
-          </div>
-
-          {/* 5th row */}
-          <div>
-            <label className="form-label">Required Skills Set</label>
-            <CreatableSelect
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
-              options={options}
-              isMulti
-              className="form-input py-4"
-            />
-          </div>
-
-          {/* 6th row */}
-          <div className="flex-row">
-            <div className="half-width">
-              <label className="form-label">Company Logo</label>
-              <input
-                type="url"
-                placeholder="Paste your company logo URL here"
-                {...register("companyLogo")}
-                className="form-input"
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Required Skills Set</label>
+              <CreatableSelect
+                defaultValue={selectedOption}
+                onChange={setSelectedOption}
+                options={options}
+                isMulti
+                className="form-input py-2"
+                classNamePrefix="select"
               />
             </div>
-            <div className="half-width">
-              <label className="form-label">Employment Type</label>
-              <select {...register("employmentType")} className="form-select">
-                <option value="">Choose your Employment Type</option>
+          </div>
+
+          {/* Company Logo and Employment Type */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Company Logo URL</label>
+              <input
+                type="url"
+                {...register("companyLogo")}
+                className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
+                placeholder="Paste company logo URL"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">Employment Type</label>
+              <select {...register("employmentType")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
+                <option value="">Choose employment type</option>
                 <option value="Full-time">Full-time</option>
                 <option value="Part-time">Part-time</option>
                 <option value="Internship">Internship</option>
@@ -203,35 +186,36 @@ const CreateJob = () => {
             </div>
           </div>
 
-          {/* 7th row */}
-          <div className="w-full">
-            <label className="form-label">Job Description</label>
+          {/* Job Description and Posted By */}
+          <div>
+            <label className="block text-sm font-medium text-gray-900 mb-1">Job Description</label>
             <textarea
-              className="textarea"
+              className="form-textarea w-full px-3 py-2 bg-white text-black border border-gray-300 rounded-lg focus:outline-none"
               rows={6}
-              defaultValue={
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eum fugit reprehenderit sit similique accusamus?"
-              }
-              placeholder="Job description"
               {...register("description")}
+              placeholder="Enter job description"
             />
           </div>
-
-          {/* last row */}
-          <div className="w-full">
-            <label className="form-label">Job Posted By</label>
+          <div>
+            <label className="block text-sm font-medium text-gray-900 mb-1">Job Posted By</label>
             <input
               type="email"
-              placeholder="Your email"
-              {...register("postedBy")}
-              className="form-input"
+              {...register("postedBy", { required: true })}
+              className="form-input border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2"
+              placeholder="Enter your email"
             />
+            {errors.postedBy && <span className="text-red-500 text-xs">This field is required</span>}
           </div>
 
-          <input
-            type="submit"
-            className="button"
-          />
+          {/* Submit Button */}
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-black hover:bg-blue-300 text-white font-semibold px-6 py-3 rounded-md transition duration-200"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </div>

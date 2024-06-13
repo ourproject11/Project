@@ -1,5 +1,3 @@
-// Navbar.jsx
-
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -10,6 +8,7 @@ const Navbar = () => {
   const handleMenuToggler = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const navItems = [
     { path: "/", title: "Home" },
     { path: "/my", title: "My Jobs" },
@@ -23,8 +22,8 @@ const Navbar = () => {
         <a href="/" className="flex items-center gap-2 text-3xl text-black">
           <img 
             src="/images/file.png" 
-            width="29" 
-            height="30" 
+            width="51" 
+            height="46" 
             alt="Icon description"
           />
           <span className='navbar-title'>HireHub</span>
@@ -57,7 +56,7 @@ const Navbar = () => {
       <div className={`mobile-menu ${isMenuOpen ? "visible" : "hidden"}`}>
         <ul>
           {navItems.map(({ path, title }) => (
-            <li key={path} className="text-base text-white py-1">
+            <li key={path} className="text-base text-black py-1">
               <NavLink 
                 to={path} 
                 className={({ isActive }) => isActive ? "active" : ""}
@@ -66,7 +65,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
-          <li className="text-white py-1">
+          <li className="text-black py-1">
             <Link to="/login">Log In</Link>
           </li>
         </ul>
