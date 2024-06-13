@@ -1,16 +1,20 @@
 import React , { useState } from 'react';
-import { auth } from '../firebase/firebase.config';
+import { Link , useNavigate } from 'react-router-dom';
 import {getAuth, signInWithEmailAndPassword ,GoogleAuthProvider , signInWithPopup } from "firebase/auth";
+import { getFirestore , doc , getDoc } from 'firebase/firestore';
 import './Login.css';
+import Home from '../Pages/Home';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
 const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
+const db = getFirestore();
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -18,9 +22,21 @@ const handleLogin = async (event) => {
   setError('');
 
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user  = userCredential.user;
+    const userDocRef = doc(db, 'users' , user.uid);
+    const userDoc = await getDoc(userDocRef);
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      console.log('User data:' ,userData)
+      navigateBasedOnRole(userData.role);
+    } else {
+      setError('Failed to retrieve user role. Please try again.');
+    }
     // Handle successful login
   } catch (err) {
+    console.error('Login error:' , err);
     setError('Failed to log in. Please check your email and password.');
   } finally {
     setLoading(false);
@@ -32,14 +48,37 @@ const handleGoogleLogin = async () => {
   setError('');
 
   try {
-    await signInWithPopup(auth, googleProvider);
+    const result = await signInWithPopup(auth, googleProvider);
+    const user = result.user;
+    const userDocRef = doc(db, 'users', user.uid);
+    const userDoc = await getDoc(userDocRef);
+    
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      console.log('User data:', userData);
+      navigateBasedOnRole(userData.role);
+    } else {
+      setError('Failed to retrieve user role. Please try again.');
+    }
     // Handle successful login
   } catch (err) {
+    console.error('Google login error:', err);
     setError('Failed to log in with Google.');
   } finally {
     setLoading(false);
   }
 };
+
+const navigateBasedOnRole = (role) => {
+  if (role === 'candidate') {
+    navigate('/candidate-dashboard');
+  } else if (role === 'employee') {
+    navigate('/employee-dashboard');
+  } else {
+    setError('Invalid user role. Please contact support.');
+  }
+};
+
 
 return (
   <div className="login-container">
@@ -76,7 +115,7 @@ return (
       </button>
     </div>
     <div className="login-footer">
-      <a href="/register" className="register-link">Don't have an account? Register</a>
+      <Link to="/register" className="register-link">Don't have an account? Register</Link>
     </div>
   </div>
 );

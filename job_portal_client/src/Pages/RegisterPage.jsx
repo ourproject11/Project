@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import './RegisterPage.css'; // Import the CSS file for the register page
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase.config'; // Ensure the correct path to your Firebase config
+import { auth } from '../firebase/firebase.config'; 
+import { db } from '../firebase/firebase.config'; // Ensure the correct path to your Firebase config
+import { doc, setDoc } from 'firebase/firestore'; // Import Firestore functions
+
 
 const RegisterPage = () => {
   const [registerAs, setRegisterAs] = useState('candidate');
@@ -21,7 +24,16 @@ const RegisterPage = () => {
     setSuccess(false);
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userId = userCredential.user.uid;
+
+      await setDoc(doc(db, 'users', userId), {
+        name: name,
+        email: email,
+        phone: phone,
+        role: registerAs // Set the role based on the selection
+      });
+      
       console.log('Registration successful');
       setSuccess(true);
     } catch (err) {
@@ -52,7 +64,7 @@ const RegisterPage = () => {
             onChange={(e) => setRegisterAs(e.target.value)}
           >
             <option value='candidate'>Candidate</option>
-            <option value='employer'>Employer</option>
+            <option value='employee'>Employee</option>
           </select>
         </div>
         <div className='register-input-group'>

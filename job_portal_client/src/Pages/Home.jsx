@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import RegisterPage from "./RegisterPage";
 import Jobs from "./Jobs";
@@ -6,7 +7,7 @@ import Card from "../components/Card";
 import Sidebar from "../Sidebar/Sidebar";
 import Newsletter from "../components/Newsletter";
 
-const Home = () => {
+const Home = ({ role }) => {
   const[selectedCategory , setSelectedCategory] = useState(null);
   const[jobs , setJobs] = useState([]);
   const[query , setQuery] = useState("");
@@ -128,8 +129,28 @@ const result = filteredData(jobs, selectedCategory , query);
           }
 
         </div>
-        <div className="right-content"><Newsletter/></div>
+        <div className="right-content"><Newsletter/>
+        </div>
       </div>
+      <div className="role-specific-content">
+        {role === "candidate" && (
+          <div className="candidate-content">
+            <h2>Candidate Specific Content</h2>
+            {/* Add any candidate-specific content here */}
+          </div>
+        )}
+        {role === "employee" && (
+          <div className="employee-content">
+            <h2>Employee Specific Content</h2>
+            <nav>
+            <Link to="/my-jobs">My Jobs</Link>
+            <Link to="/salary">Salary</Link>
+            <Link to="/post-job">Post a Job</Link>
+            </nav>
+            {/* Add any employee-specific content here */}
+          </div>
+        )}
+        </div>
     </div>
   );
 };
