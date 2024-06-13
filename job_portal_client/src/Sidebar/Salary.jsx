@@ -1,51 +1,28 @@
 import React from 'react';
-import Button from './Button';
-import Inputfield from '../components/InputField';
-import './Salary.css'; // Ensure this path is correct based on your project structure
 
-const Salary = ({ handleChange, handleClick }) => {
+const Salary = ({ handleChange }) => {
   return (
-    <div>
-      <h4 className='salary-title'>Salary</h4>
-      <div className='button-group'>
-        <Button onClickHandler={handleClick} value="" title="Hourly" />
-        <Button onClickHandler={handleClick} value="Monthly" title="Monthly" />
-        <Button onClickHandler={handleClick} value="Yearly" title="Yearly" />
-      </div>
-      <div>
-        <label className='side-label-container'>
-          <input
-            type="radio"
-            name="test"
-            id="test"
-            value=""
-            onChange={handleChange}
-          />
-          <span className='checkmark'></span>All
-        </label>
-        <Inputfield
-          handleChange={handleChange}
-          value={30}
-          title="< 30000k"
-          name="test2"
+    <div className="mb-4">
+      <label htmlFor="salary" className="block text-sm font-medium text-gray-700 mb-2">
+        Salary Range (in k)
+      </label>
+      <div className="flex space-x-2">
+        <input
+          type="number"
+          id="minSalary"
+          name="minSalary"
+          placeholder="Min"
+          className="w-1/2 px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-blue-500"
+          onChange={handleChange}
         />
-        <Inputfield
-          handleChange={handleChange}
-          value={50}
-          title="< 50000k"
-          name="test2"
-        />
-        <Inputfield
-          handleChange={handleChange}
-          value={80}
-          title="< 80000k"
-          name="test2"
-        />
-        <Inputfield
-          handleChange={handleChange}
-          value={100}
-          title="< 100000k"
-          name="test2"
+        <span className="text-gray-600">-</span>
+        <input
+          type="number"
+          id="maxSalary"
+          name="maxSalary"
+          placeholder="Max"
+          className="w-1/2 px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-blue-500"
+          onChange={handleChange}
         />
       </div>
     </div>

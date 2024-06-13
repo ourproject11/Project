@@ -29,32 +29,36 @@ const SalaryPage = () => {
     };
 
     return (
-        <div className='max-w-screen-2x1 container mx-auto x1:px-24 px-4'>
+        <div className='max-w-screen-2x1 container mx-auto px-4 py-6'>
             <PageHeader title={"Estimate salary"} path={"Salary"} />
-            <div className='search-box p-2 text-center mb-2'>
+            <div className='flex justify-center mt-6'>
                 <input
                     type='text'
                     name='search'
                     id='search'
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
-                    className='py-2 pl-3 border focus:outline-none lg:w-6/12 mb-4 w-full'
+                    placeholder='Search jobs by title'
+                    className='py-2 px-4 border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500 lg:w-1/3 w-full'
                 />
-                <button className='bg-blue text-white font-semibold px-8 py-2 rounded-sm mb-4' onClick={handleSearch}>
+                <button
+                    className='bg-black text-white font-semibold px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-150'
+                    onClick={handleSearch}
+                >
                     Search
                 </button>
             </div>
             {/* Salary display cards */}
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-6'>
                 {loading ? (
-                    <div>Loading...</div>
+                    <div className="col-span-full text-center text-black">Loading...</div>
                 ) : (
                     filtered.map(job => (
-                        <div key={job.id} className='bg-white shadow-lg rounded-lg p-4'>
-                            <h3 className='text-lg font-semibold mb-2 text-blue'>{job.title}</h3>
-                            <p className='text-sm text-gray-600 text-green'>Salary: {job.salary}</p>
-                            <p className='text-sm text-gray-600 text-red'>Status: {job.status}</p>
-                            <p className='text-sm text-gray-600 text-yellow'>Skills: {job.skills}</p>
+                        <div key={job.id} className='bg-white shadow-lg rounded-lg p-4 mb-4'>
+                            <h3 className='text-lg font-semibold mb-2 text-blue-500'>{job.title}</h3>
+                            <p className='text-sm text-black'>Salary: <span className='text-green-500'>{job.salary}</span></p>
+                            <p className='text-sm text-black'>Status: <span className='text-red-500'>{job.status}</span></p>
+                            <p className='text-sm text-black'>Skills: <span className='text-yellow-500'>{job.skills}</span></p>
                         </div>
                     ))
                 )}

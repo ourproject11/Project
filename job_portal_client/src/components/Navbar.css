@@ -1,26 +1,44 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 /* Header Styles */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: #f9fafb; /* Light background for header */
-  border-radius: 25px; /* Rounded corners for header */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: white; /* White background */
+  border-bottom: 1px solid #E5E7EB;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Logo and Title */
 .header a {
   display: flex;
   align-items: center;
-  color: #6B46C1; /* Purple color */
+  color: #111827; /* Black text color */
   text-decoration: none;
 }
 
 .header a img {
   margin-right: 10px;
-  width: 51px;
-  height: 46px;
+}
+
+.navbar-title {
+  font-family: 'DM Sans', sans-serif;
+  background-image: linear-gradient(to right, #000, #3575E2); /* Black to Blue gradient */
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Navigation Items */
@@ -30,35 +48,37 @@
 }
 
 .nav-item a {
-  color: #6B46C1;
-  font-size: 21px;
+  font-family: 'DM Sans', sans-serif;
+  color: #3575E2; /* Blue text color */
+  font-size: 1rem;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 25px; /* Rounded corners for nav items */
+  border-radius: 25px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-item a:hover, .nav-item a.active {
-  background-color: #6B46C1; /* Purple background on hover and active */
-  color: white; /* White text on hover and active */
-  transform: scale(1.05); /* Slight scaling on hover */
+  background-color: #3575E2; /* Blue background on hover */
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Authentication Links */
 .auth-links a {
-  color: #6B46C1;
+  font-family: 'DM Sans', sans-serif;
+  color: #e63946; /* Red text color */
   text-decoration: none;
   padding: 0.5rem 1rem;
   margin-left: 1rem;
-  border: 2px solid #6B46C1;
-  border-radius: 25px; /* Rounded corners for auth links */
+  border: 2px solid #e63946; /* Red border */
+  border-radius: 25px;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .auth-links a:hover {
-  background-color: #6B46C1; /* Purple background on hover */
-  color: white; /* White text on hover */
-  transform: scale(1.05); /* Slight scaling on hover */
+  background-color: #e63946; /* Red background on hover */
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Mobile Menu Button */
@@ -70,8 +90,8 @@
 }
 
 .mobile-menu-button .icon {
-  color: #6B46C1; /* Purple color */
-  font-size: 24px; /* Adjust icon size as needed */
+  color: #111827; /* Black icon color */
+  font-size: 1.5rem;
 }
 
 /* Mobile Menu */
@@ -80,9 +100,12 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  background-color: #f9fafb; /* Light background for mobile menu */
-  border-radius: 25px; /* Rounded corners for mobile menu */
-  margin-top: 10px;
+  background-color: white; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 70px;
+  right: 20px;
 }
 
 .mobile-menu ul {
@@ -96,17 +119,18 @@
 }
 
 .mobile-menu a {
-  color: #6B46C1;
+  font-family: 'DM Sans', sans-serif;
+  color: #3575E2; /* Blue text color */
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 25px; /* Rounded corners for mobile nav items */
+  border-radius: 25px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .mobile-menu a:hover, .mobile-menu a.active {
-  background-color: #6B46C1; /* Purple background on hover and active */
-  color: white; /* White text on hover and active */
-  transform: scale(1.05); /* Slight scaling on hover */
+  background-color: #3575E2; /* Blue background on hover */
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Responsive Styles */
@@ -134,14 +158,4 @@
   .mobile-menu.visible {
     display: flex;
   }
-}
-
-/* Navbar Title */
-.navbar-title {
-  background-image: linear-gradient(to right, #000, #6b46c1); /* Adjusted gradient colors */
-  -webkit-background-clip: text; /* Clip text to the background area */
-  color: transparent; /* Make text transparent */
-  font-size: 2.5rem; /* Adjust the font size as needed */
-  font-weight: bold; /* Increase font weight for emphasis */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow effect */
 }
