@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
-import { db, doc, setDoc } from 'firebase/firestore'; // Ensure the correct imports
+import { doc, setDoc } from 'firebase/firestore';
+import { getFirestore } from "firebase/firestore";
 
 const RegisterPage = () => {
   const [registerAs, setRegisterAs] = useState('candidate');
