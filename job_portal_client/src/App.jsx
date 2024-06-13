@@ -1,13 +1,15 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet  , useLocation} from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import './App.css';
 import Navbar from './components/Navbar';
 
 function App() {
+  const location = useLocation();
+  const hideNavbar = location.pathname === '/';
   return (
     <AuthProvider>
-      <Navbar/>
+       {!hideNavbar && <Navbar />}
       <Outlet /> 
     </AuthProvider>
   );

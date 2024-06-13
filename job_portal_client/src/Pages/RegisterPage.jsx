@@ -5,6 +5,7 @@ import { auth } from '../firebase/firebase.config';
 import { doc, setDoc } from 'firebase/firestore';
 import { getFirestore } from "firebase/firestore";
 
+
 const RegisterPage = () => {
   const [registerAs, setRegisterAs] = useState('candidate');
   const [name, setName] = useState('');

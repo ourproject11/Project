@@ -11,6 +11,7 @@ import JobDetails from "../Pages/JobDetails";
 import ProtectedRoute from "../components/ProtectedRoute";
 import CandidateDashboard from "../components/CandidateDashboard";
 import EmployeeDashboard from "../components/EmployeeDashboard";
+import Welcome from "../components/Welcome";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element : <Welcome />
+      },
+      {
+        path: "/home",
         element: <ProtectedRoute component={Home} />
       },
       { path: "/register", element: <RegisterPage /> },

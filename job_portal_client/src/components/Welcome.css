@@ -1,0 +1,128 @@
+/* src/components/WelcomePage.css */
+
+/* Keyframes for animations */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+/* Applying animations */
+.welcome-title,
+.welcome-subtitle,
+.welcome-buttons .btn,
+.feature {
+    animation: fadeInUp 1s ease-out;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial, sans-serif';
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: white;
+    color: #000;
+    text-align: center;
+}
+
+.welcome-header {
+    margin-top: 10vh;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.welcome-buttons .btn {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ff6f61;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.welcome-buttons .btn:hover {
+    background-color: #e55750;
+    transform: translateY(-5px);
+}
+
+.welcome-features {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.feature {
+    max-width: 300px;
+    margin: 1rem;
+}
+
+.feature h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.welcome-footer {
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome-image {
+    width: 100%;
+    max-width: 400px; /* Adjust the width of the picture */
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .welcome-container {
+        flex-direction: row;
+    }
+
+    .welcome-content {
+        flex: 1;
+    }
+
+    .welcome-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+    }
+}
