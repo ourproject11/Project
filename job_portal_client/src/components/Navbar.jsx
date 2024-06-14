@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from "react-icons/fa";
-import { auth, db } from '../firebase/firebase.config'; // Adjust the path if necessary
+import { auth, db } from '../firebase/firebase.config';
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore"; // Add Firestore imports
+import { doc, getDoc } from "firebase/firestore";
 import './Navbar.css';
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
         try {
           const userDoc = await getDoc(doc(db, "users", currentUser.uid));
           if (userDoc.exists()) {
-            setRole(userDoc.data().role); // Assuming 'role' field exists
+            setRole(userDoc.data().role);
           } else {
             console.log("No such document!");
             setRole(null);
@@ -41,7 +41,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     signOut(auth).then(() => {
-      navigate('/'); // Redirect to homepage after logout
+      navigate('/');
     }).catch((error) => {
       console.error("Error signing out: ", error);
     });
@@ -76,7 +76,7 @@ const Navbar = () => {
 
         {user ? (
           <>
-            <ul className="nav-items">
+            <ul className="nav-items hidden sm:flex">
               {commonNavItems.map(({ path, title }) => (
                 <li key={path} className="nav-item">
                   <NavLink 
@@ -99,20 +99,20 @@ const Navbar = () => {
               ))}
             </ul>
 
-            <div className="auth-links">
+            <div className="auth-links hidden sm:flex">
               <button onClick={handleLogout} className="py-2 px-5 border rounded">
                 Log Out
               </button>
             </div>
           </>
         ) : (
-          <div className="auth-links">
+          <div className="auth-links hidden sm:flex">
             <Link to="/login" className="py-2 px-5 border rounded">Log In</Link>
             <Link to="/register" className="py-2 px-5 border rounded signup">Register Now</Link>
           </div>
         )}
 
-        <div className="mobile-menu-button">
+        <div className="mobile-menu-button sm:hidden">
           <button onClick={handleMenuToggler}>
             {isMenuOpen ? <FaTimes className="icon" /> : <FaBars className="icon" />}
           </button>
@@ -123,27 +123,27 @@ const Navbar = () => {
         <div className={`mobile-menu ${isMenuOpen ? "visible" : "hidden"}`}>
           <ul>
             {commonNavItems.map(({ path, title }) => (
-              <li key={path} className="text-base text-black py-1">
+              <li key={path} className="text-base py-1">
                 <NavLink 
                   to={path} 
-                  className={({ isActive }) => isActive ? "active" : ""}
+                  className={({ isActive }) => isActive ? "active text-black" : "text-black"}
                 >
                   {title}
                 </NavLink>
               </li>
             ))}
             {(role === 'candidate' ? candidateNavItems : employerNavItems).map(({ path, title }) => (
-              <li key={path} className="text-base text-black py-1">
+              <li key={path} className="text-base py-1">
                 <NavLink 
                   to={path} 
-                  className={({ isActive }) => isActive ? "active" : ""}
+                  className={({ isActive }) => isActive ? "active text-black" : "text-black"}
                 >
                   {title}
                 </NavLink>
               </li>
             ))}
-            <li className="text-black py-1">
-              <button onClick={handleLogout} className="py-2 px-5 border rounded">
+            <li className="text-base py-1">
+              <button onClick={handleLogout} className="py-2 px-5 border rounded text-black">
                 Log Out
               </button>
             </li>
