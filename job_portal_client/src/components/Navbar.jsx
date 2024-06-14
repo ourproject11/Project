@@ -81,7 +81,8 @@ const Navbar = () => {
                 <li key={path} className="nav-item">
                   <NavLink 
                     to={path} 
-                    className={({ isActive }) => isActive ? "active" : ""}
+                    className={({ isActive }) => isActive ? "active text-black" : "text-black"}
+                    activeClassName="text-blue-600"
                   >
                     {title}
                   </NavLink>
@@ -91,7 +92,8 @@ const Navbar = () => {
                 <li key={path} className="nav-item">
                   <NavLink 
                     to={path} 
-                    className={({ isActive }) => isActive ? "active" : ""}
+                    className={({ isActive }) => isActive ? "active text-black" : "text-black"}
+                    activeClassName="text-blue-600"
                   >
                     {title}
                   </NavLink>
@@ -127,6 +129,7 @@ const Navbar = () => {
                 <NavLink 
                   to={path} 
                   className={({ isActive }) => isActive ? "active text-black" : "text-black"}
+                  activeClassName="text-blue-600"
                 >
                   {title}
                 </NavLink>
@@ -137,6 +140,7 @@ const Navbar = () => {
                 <NavLink 
                   to={path} 
                   className={({ isActive }) => isActive ? "active text-black" : "text-black"}
+                  activeClassName="text-blue-600"
                 >
                   {title}
                 </NavLink>
