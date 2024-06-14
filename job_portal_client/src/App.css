@@ -162,14 +162,14 @@ body {
 
 .mobile-menu li {
   font-size: 1rem; /* text-base */
-  color: white;
+  color: black;
   padding-top: 0.25rem; /* py-1 */
   padding-bottom: 0.25rem; /* py-1 */
 }
 
 .mobile-menu li a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .active {

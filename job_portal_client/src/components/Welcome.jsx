@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import welcomeImg1 from '../assets/file (4).png';
 import userImage from '../assets/serach image.png';
+import registerImage from '../assets/registerimg.png';
+import searchImage from '../assets/searchimg.jpg';
+import applyImage from '../assets/applyimg.jpg';
+import hireImage from '../assets/hireimg.webp';
+import janeImage from '../assets/janeimg.jpeg';
+import johnImage from '../assets/johnimg.jpg';
 
 const Welcome = () => {
   return (
@@ -33,22 +39,22 @@ const Welcome = () => {
           <h2 className="text-black text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
-              <img src={userImage} alt="Register" className="w-20 h-20 mb-4" />
+              <img src={registerImage} alt="Register" className="w-22 h-20 mb-4" />
               <h3 className="text-xl font-bold mb-2 text-black">Register</h3>
               <p className="text-gray-800 text-center">Create an account and complete your profile.</p>
             </div>
             <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
-              <img src={userImage} alt="Search" className="w-20 h-20 mb-4" />
+              <img src={searchImage} alt="Search" className="w-20 h-20 mb-4" />
               <h3 className="text-xl font-bold mb-2 text-black">Search</h3>
               <p className="text-gray-800 text-center">Browse through thousands of job listings.</p>
             </div>
             <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
-              <img src={userImage} alt="Apply" className="w-20 h-20 mb-4" />
+              <img src={applyImage} alt="Apply" className="w-20 h-20 mb-4" />
               <h3 className="text-xl font-bold mb-2 text-black">Apply</h3>
               <p className="text-gray-800 text-center">Submit your application directly through our portal.</p>
             </div>
             <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
-              <img src={userImage} alt="Get Hired" className="w-20 h-20 mb-4" />
+              <img src={hireImage} alt="Get Hired" className="w-20 h-20 mb-4" />
               <h3 className="text-xl font-bold mb-2 text-black">Get Hired</h3>
               <p className="text-gray-800 text-center">Receive offers and start your new career.</p>
             </div>
@@ -63,7 +69,7 @@ const Welcome = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="flex flex-col items-center md:items-start text-center md:text-left bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
-                <img src={userImage} alt="User" className="w-24 h-24 rounded-full mr-4" />
+                <img src={janeImage} alt="User" className="w-24 h-24 rounded-full mr-4" />
                 <div>
                   <p className="text-lg text-gray-600 font-bold text-right">Hey, I am Jane Doe</p>
                   <p className="text-sm text-black text-right">"This job portal helped me find my dream job in just two weeks!"</p>
@@ -72,7 +78,7 @@ const Welcome = () => {
             </div>
             <div className="flex flex-col items-center md:items-start text-center md:text-left bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
-                <img src={userImage} alt="User" className="w-24 h-24 rounded-full mr-4" />
+                <img src={johnImage} alt="User" className="w-24 h-24 rounded-full mr-4" />
                 <div>
                   <p className="text-lg text-gray-600 font-bold text-right">Hey, I am John Smith</p>
                   <p className="text-sm text-black text-right">"As an employer, I found the perfect candidate within days of posting my job listing."</p>

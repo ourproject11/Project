@@ -135,6 +135,10 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .mobile-menu a {
+    color: #000;
+  }
+
   .nav-items {
     display: none;
   }
@@ -157,5 +161,6 @@
 
   .mobile-menu.visible {
     display: flex;
+    /* color: black; */
   }
 }
