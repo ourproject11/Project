@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase.config';
+import { auth , db} from '../firebase/firebase.config';
 import { doc, setDoc } from 'firebase/firestore';
-import { getFirestore } from "firebase/firestore";
+// import { getFirestore } from "firebase/firestore";
 
 
 const RegisterPage = () => {
@@ -37,7 +37,7 @@ const RegisterPage = () => {
       setSuccess(true);
     } catch (err) {
       setError('Failed to register. Please check your details and try again.');
-      console.error('Registration error:', err);
+      console.error('Registration error:', err.message , err.code);
     } finally {
       setLoading(false);
     }
@@ -64,7 +64,7 @@ const RegisterPage = () => {
               className="border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:border-blue-500"
             >
               <option value="candidate">Candidate</option>
-              <option value="employer">Employer</option>
+              <option value="employee">Employee</option>
             </select>
           </div>
           <div className="flex flex-col">
