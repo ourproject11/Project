@@ -1,18 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from "react-icons/fa";
-import { auth } from '../firebase/firebase.config'; // Adjust the path if necessary
+import { auth, db } from '../firebase/firebase.config'; // Adjust the path if necessary
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore"; // Add Firestore imports
 import './Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        try {
+          const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+          if (userDoc.exists()) {
+            setRole(userDoc.data().role); // Assuming 'role' field exists
+          } else {
+            console.log("No such document!");
+            setRole(null);
+          }
+        } catch (error) {
+          console.error("Error fetching user role: ", error);
+          setRole(null);
+        }
+      } else {
+        setRole(null);
+      }
     });
     return () => unsubscribe();
   }, []);
@@ -29,7 +47,15 @@ const Navbar = () => {
     });
   };
 
-  const navItems = [
+  const commonNavItems = [
+    { path: "/candidate-dashboard", title: "Search Job" },
+  ];
+
+  const candidateNavItems = [
+    { path: "/salary", title: "Salary" },
+  ];
+
+  const employerNavItems = [
     { path: "/my", title: "My Jobs" },
     { path: "/salary", title: "Salary" },
     { path: "/post-job", title: "Post a Job" },
@@ -38,7 +64,7 @@ const Navbar = () => {
   return (
     <header className="container xl:px-24 px-4">
       <nav className="header">
-        <a href="/" className="flex items-center gap-2 text-3xl text-black">
+        <Link to="/" className="flex items-center gap-2 text-3xl text-black">
           <img 
             src="/images/file.png" 
             width="51" 
@@ -46,20 +72,22 @@ const Navbar = () => {
             alt="Icon description"
           />
           <span className='navbar-title'>HireHub</span>
-        </a>
+        </Link>
 
         {user ? (
           <>
             <ul className="nav-items">
-              <li className="nav-item">
-                <NavLink 
-                  to="/candidate-dashboard" 
-                  className={({ isActive }) => isActive ? "active" : ""}
-                >
-                  Search Job
-                </NavLink>
-              </li>
-              {navItems.map(({ path, title }) => (
+              {commonNavItems.map(({ path, title }) => (
+                <li key={path} className="nav-item">
+                  <NavLink 
+                    to={path} 
+                    className={({ isActive }) => isActive ? "active" : ""}
+                  >
+                    {title}
+                  </NavLink>
+                </li>
+              ))}
+              {(role === 'candidate' ? candidateNavItems : employerNavItems).map(({ path, title }) => (
                 <li key={path} className="nav-item">
                   <NavLink 
                     to={path} 
@@ -94,15 +122,17 @@ const Navbar = () => {
       {user && (
         <div className={`mobile-menu ${isMenuOpen ? "visible" : "hidden"}`}>
           <ul>
-            <li className="text-base text-black py-1">
-              <NavLink 
-                to="/candidate-dashboard" 
-                className={({ isActive }) => isActive ? "active" : ""}
-              >
-                Search Job
-              </NavLink>
-            </li>
-            {navItems.map(({ path, title }) => (
+            {commonNavItems.map(({ path, title }) => (
+              <li key={path} className="text-base text-black py-1">
+                <NavLink 
+                  to={path} 
+                  className={({ isActive }) => isActive ? "active" : ""}
+                >
+                  {title}
+                </NavLink>
+              </li>
+            ))}
+            {(role === 'candidate' ? candidateNavItems : employerNavItems).map(({ path, title }) => (
               <li key={path} className="text-base text-black py-1">
                 <NavLink 
                   to={path} 

@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+// Firebase configuration object containing keys and identifiers for your app
 const firebaseConfig = {
   apiKey: "AIzaSyDbaB2witKfnuBD5jdjo6sH3fQib1d2f5E",
   authDomain: "job-portal-efb7b.firebaseapp.com",
@@ -13,9 +14,12 @@ const firebaseConfig = {
   appId: "1:886100198160:web:03f8501938e7ba67731b95"
 };
 
-// Initialize Firebase
+// Initialize Firebase app with the provided configuration
 const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase Authentication and Firestore services
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// Export the initialized services for use in other parts of the application
 export { auth, db };
