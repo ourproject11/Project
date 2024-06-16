@@ -24,7 +24,7 @@
     left: 0;
     height: 20px;
     width: 20px;
-    background-color: #eee;
+    background-color: #fff;
     border-radius: 50%;
     transition: background-color 0.3s ease;
   }
@@ -34,7 +34,7 @@
   }
   
   .side-label-container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #ff0056;
   }
   
   .checkmark:after {

@@ -4,7 +4,6 @@ import Banner from "../components/Banner";
 import Jobs from "./Jobs";
 import Card from "../components/Card";
 import Sidebar from "../Sidebar/Sidebar";
-import Newsletter from "../components/Newsletter";
 
 const Home = ({ role }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -124,14 +123,14 @@ const Home = ({ role }) => {
 
           {/* Job Listings and Pagination */}
           <div className="col-span-2">
-            <div className="bg-white rounded-lg shadow-md p-4">
+            <div className="bg-black rounded-lg shadow-md p-4">
               {isLoading ? (
                 <p className="font-medium text-center">Loading...</p>
               ) : result.length > 0 ? (
                 <Jobs result={result} />
               ) : (
                 <div className="text-center">
-                  <h3 className="text-lg font-bold mb-2">{result.length} Jobs</h3>
+                  <h3 className=" color-white text-lg font-bold mb-2">{result.length} Jobs</h3>
                   <p>No data found!</p>
                 </div>
               )}
@@ -162,20 +161,17 @@ const Home = ({ role }) => {
           </div>
         </div>
 
-        {/* Newsletter */}
-        <Newsletter />
 
         {/* Role-specific content */}
         <div className="role-specific-content">
           {role === "candidate" && (
             <div className="candidate-content">
-              <h2>Candidate Specific Content</h2>
               {/* Add any candidate-specific content here */}
             </div>
           )}
           {role === "employee" && (
             <div className="employee-content">
-              <h2>Employee Specific Content</h2>
+              {/* <h2>Employee Specific Content</h2> */}
               <nav>
                 <Link to="/my-jobs">My Jobs</Link>
                 <Link to="/salary">Salary</Link>

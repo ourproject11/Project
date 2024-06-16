@@ -108,15 +108,6 @@ const Login = () => {
           {loading ? 'Logging in...' : 'Log In'}
         </button>
       </form>
-      <div className="google-login">
-        <button
-          className="google-login-button"
-          onClick={handleGoogleLogin}
-          disabled={loading}
-        >
-          Log In with Google
-        </button>
-      </div>
       <div className="login-footer">
         <p>Don't have an account?</p>
         <Link to="/register" className="register-link">Register</Link>

@@ -1,18 +1,21 @@
 .login-container {
     max-width: 400px;
-    margin: 9rem auto;
+    margin: 6rem auto;
     padding: 2rem;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(174, 167, 167, 0.1);
     text-align: center;
-    background-color: #fff;
+    background-color: #000;
+  }
+  .input-group{
+    color: white;
   }
   
   .login-heading {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #333;
+    font-size: 2rem;
+    color: #fff;
   }
   
   .login-form .input-group {
@@ -40,9 +43,10 @@
   .login-button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: #ff0056;
+    color: black;
+    font-weight: bold;
+    border: 1px solid white;
     border-radius: 4px;
     cursor: pointer;
   }
@@ -60,18 +64,19 @@
     padding: 0.75rem;
     background-color: #db4437;
     color: white;
-    border: none;
+    border: 1px solid white;
     border-radius: 4px;
     cursor: pointer;
   }
   
   .login-footer {
     margin-top: 1rem;
+    color: #aaa;
   }
   
   .login-footer a {
     display: block;
-    color: #007bff;
+    color: #fff;
     text-decoration: none;
   }
   

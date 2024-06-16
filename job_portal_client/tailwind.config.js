@@ -7,8 +7,11 @@ export default {
   theme: {
     extend: {
       colors : {
-        "primary" : "#141414",
+        "primary" : "#fff",
         "blue" : "#3575E2",
+        "cherry" : "#ff0056",
+        "darkred" : "#8b0000",
+        textDecoration: ['active'],
       }
     },
   },

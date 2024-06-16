@@ -61,13 +61,13 @@ const CreateJob = () => {
 
   return (
     <div className="bg-gradient-to-r from-lightBlue-300 to-black min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
-        <h2 className="text-3xl font-semibold text-center text-black mb-8">Create a Job</h2>
+      <div className="bg-black p-8 rounded-lg shadow-lg w-full max-w-3xl">
+        <h2 className=" underline text-3xl font-semibold text-center text-white mb-8">Create a Job</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Job Title and Company Name */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Job Title</label>
+              <label className="block text-m font-medium text-white mb-1">Job Title</label>
               <input
                 type="text"
                 {...register("jobTitle", { required: true })}
@@ -77,7 +77,7 @@ const CreateJob = () => {
               {errors.jobTitle && <span className="text-red-500 text-xs">This field is required</span>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Company Name</label>
+              <label className="block text-sm font-medium text-white mb-1">Company Name</label>
               <input
                 type="text"
                 {...register("companyName", { required: true })}
@@ -91,7 +91,7 @@ const CreateJob = () => {
           {/* Salary and Salary Type */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Minimum Salary</label>
+              <label className="block text-sm font-medium text-white mb-1">Minimum Salary</label>
               <input
                 type="text"
                 {...register("minPrice")}
@@ -100,7 +100,7 @@ const CreateJob = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Maximum Salary</label>
+              <label className="block text-sm font-medium text-white mb-1">Maximum Salary</label>
               <input
                 type="text"
                 {...register("maxPrice")}
@@ -109,7 +109,7 @@ const CreateJob = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Salary Type</label>
+              <label className="block text-sm font-medium text-white mb-1">Salary Type</label>
               <select {...register("salaryType")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
                 <option value="">Choose salary type</option>
                 <option value="Hourly">Hourly</option>
@@ -122,7 +122,7 @@ const CreateJob = () => {
           {/* Job Location and Posting Date */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Job Location</label>
+              <label className="block text-sm font-medium text-white mb-1">Job Location</label>
               <input
                 type="text"
                 {...register("jobLocation")}
@@ -131,7 +131,7 @@ const CreateJob = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Posting Date</label>
+              <label className="block text-sm font-medium text-white mb-1">Posting Date</label>
               <input
                 type="date"
                 {...register("postingDate")}
@@ -143,7 +143,7 @@ const CreateJob = () => {
           {/* Experience Level and Skills Set */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Experience Level</label>
+              <label className="block text-sm font-medium text-white mb-1">Experience Level</label>
               <select {...register("experiencelevel")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
                 <option value="">Choose experience level</option>
                 <option value="No Experience">No experience</option>
@@ -152,7 +152,7 @@ const CreateJob = () => {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Required Skills Set</label>
+              <label className="block text-sm font-medium text-white mb-1">Required Skills Set</label>
               <CreatableSelect
                 defaultValue={selectedOption}
                 onChange={setSelectedOption}
@@ -167,7 +167,7 @@ const CreateJob = () => {
           {/* Company Logo and Employment Type */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Company Logo URL</label>
+              <label className="block text-sm font-medium text-white mb-1">Company Logo URL</label>
               <input
                 type="url"
                 {...register("companyLogo")}
@@ -176,7 +176,7 @@ const CreateJob = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Employment Type</label>
+              <label className="block text-sm font-medium text-white mb-1">Employment Type</label>
               <select {...register("employmentType")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
                 <option value="">Choose employment type</option>
                 <option value="Full-time">Full-time</option>
@@ -188,16 +188,16 @@ const CreateJob = () => {
 
           {/* Job Description and Posted By */}
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-1">Job Description</label>
+            <label className="block text-sm font-medium text-white mb-1">Job Description</label>
             <textarea
-              className="form-textarea w-full px-3 py-2 bg-white text-black border border-gray-300 rounded-lg focus:outline-none"
+              className="form-textarea w-full px-3 py-2 bg-black text-white border border-gray-300 rounded-lg focus:outline-none"
               rows={6}
               {...register("description")}
               placeholder="Enter job description"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-1">Job Posted By</label>
+            <label className="block text-sm font-medium text-white mb-1">Job Posted By</label>
             <input
               type="email"
               {...register("postedBy", { required: true })}
@@ -211,7 +211,7 @@ const CreateJob = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-black hover:bg-blue-300 text-white font-semibold px-6 py-3 rounded-md transition duration-200"
+              className="bg-cherry hover:bg-blue-300 text-white font-semibold px-6 py-3 rounded-md transition duration-200"
             >
               Submit
             </button>

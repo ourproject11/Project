@@ -3,12 +3,14 @@
   font-size: 1.125rem; /* text-lg */
   font-weight: 500; /* font-medium */
   margin-bottom: 0.5rem; /* mb-2 */
+  color: white;
 }
 
 .side-label-container {
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem; /* Adjust margin as needed */
+  margin-bottom: 0.5rem;
+  color: white; /* Adjust margin as needed */
 }
 
 .side-label-container input[type="radio"] {
