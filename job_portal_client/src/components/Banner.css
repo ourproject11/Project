@@ -43,7 +43,7 @@
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
   align-items: center;
   border-bottom: 2px solid var(--cherry-color);
-  padding-top: 0.5rem;
+  padding-top: 0.1rem;
   padding-bottom: 0.5rem;
   gap: 1rem;
 }
