@@ -1,13 +1,13 @@
 /* Card Styles */
 .card {
-  background-color: #f7f7f7; /* Light gray background */
+  background-color: black; /* Light gray background */
   border-radius: 10px; /* Rounded corners */
   padding: 20px; /* Padding around the card */
   margin-bottom: 20px; /* Spacing between cards */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  box-shadow: 0 4px 8px rgba(241, 232, 232, 0.1); /* Shadow effect */
   transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
 }
-
+  
 .card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
@@ -26,16 +26,21 @@
   margin-right: 20px; /* Spacing between logo and text */
   object-fit: cover; /* Ensure logo fills the space */
 }
+.card-job-title{
+  color: white;
+}
 
 .card-company-name {
-  margin-bottom: 10px; /* Spacing below company name */
-  font-weight: bold; /* Bold font for emphasis */
+  margin-bottom: 10px;
+  font-weight: bold; 
+  color: white;
 }
 
 .card-details {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px; /* Spacing below details */
+  margin-bottom: 10px;
+  color: white;
 }
 
 .card-detail {
@@ -49,7 +54,8 @@
 }
 
 .card-description {
-  line-height: 1.5; /* Adjust line height for readability */
+  line-height: 1.5;
+  color: white; /* Adjust line height for readability */
 }
 
 @media (max-width: 768px) {

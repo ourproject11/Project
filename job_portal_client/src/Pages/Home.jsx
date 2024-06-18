@@ -4,7 +4,6 @@ import Banner from "../components/Banner";
 import Jobs from "./Jobs";
 import Card from "../components/Card";
 import Sidebar from "../Sidebar/Sidebar";
-import Newsletter from "../components/Newsletter";
 
 const Home = ({ role }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -161,9 +160,6 @@ const Home = ({ role }) => {
             </div>
           </div>
         </div>
-
-        {/* Newsletter */}
-        <Newsletter />
 
         {/* Role-specific content */}
         <div className="role-specific-content">

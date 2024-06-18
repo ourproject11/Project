@@ -81,9 +81,9 @@ const MyJobs = () => {
     };
 
     return (
-        <div className='max-w-screen-2xl container mx-auto px-4 py-6'>
+        <div className='bg-black max-w-screen-2xl container mx-auto px-4 py-6'>
             <div className='text-left mb-6'>
-                <h1 className='text-3xl font-bold text-gray-900 text-center'>All My Jobs</h1>
+                <h1 className='text-3xl font-bold text-white text-center'>All My Jobs</h1>
                 <div className='flex justify-center mt-4'>
                     <input
                         type='text'
@@ -92,45 +92,45 @@ const MyJobs = () => {
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                         placeholder='Search jobs by title'
-                        className='py-2 px-4 border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500 lg:w-1/3 w-full'
+                        className='bg-black py-2 px-4 border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500 lg:w-1/3 w-full'
                     />
                     <button
-                        className='bg-black text-white font-semibold px-4 py-2 rounded-r-md'
+                        className='bg-white text-black font-semibold px-4 py-2 rounded-r-md'
                         onClick={handleSearch}
                     >
                         Search
                     </button>
                 </div>
             </div>
-            <section className="bg-white p-4 rounded-lg shadow-lg">
+            <section className="bg-black p-4 rounded-lg shadow-lg">
                 <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-semibold text-blue-600">All Jobs</h3>
+                    <h3 className="text-xl font-bold text-white">All Jobs</h3>
                     <Link to="/post-job">
-                        <button className="bg-blue-500 text-white font-bold px-4 py-2 rounded hover:bg-blue-600 transition duration-150">
+                        <button className="bg-cherry text-white font-bold px-4 py-2 rounded hover:bg-darkred transition duration-150">
                             POST A NEW JOB
                         </button>
                     </Link>
                 </div>
                 <div className="overflow-x-auto">
-                    <table className="min-w-full bg-white">
+                    <table className="min-w-full bg-black">
                         <thead>
                             <tr>
-                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
                                     NO.
                                 </th>
-                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
                                     TITLE
                                 </th>
-                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
                                     COMPANY NAME
                                 </th>
-                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
                                     SALARY
                                 </th>
-                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
                                     EDIT
                                 </th>
-                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
                                     DELETE
                                 </th>
                             </tr>
@@ -143,28 +143,28 @@ const MyJobs = () => {
                             ) : (
                                 currentJobs.map((job, index) => (
                                     <tr key={job._id}>
-                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-white text-left">
                                             {indexOfFirstItem + index + 1}
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-white text-left">
                                             {job.jobTitle}
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-white text-left">
                                             {job.companyName}
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-white text-left">
                                             ${job.minPrice}-${job.maxPrice}
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-left">
                                             <button 
-                                                className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition duration-150"
+                                                className="bg-yellow-500 text-black px-3 py-1 rounded hover:bg-yellow-600 transition duration-150"
                                                 onClick={() => handleEdit(job._id)}
                                             >
                                                 EDIT
                                             </button>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-left">
-                                            <button onClick={() => handleDelete(job._id)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition duration-150">Delete</button>
+                                            <button onClick={() => handleDelete(job._id)} className="bg-cherry text-white px-3 py-1 rounded hover:bg-darkred transition duration-150">Delete</button>
                                         </td>
                                     </tr>
                                 ))
@@ -177,7 +177,7 @@ const MyJobs = () => {
             <div className='flex justify-center mt-6 space-x-4'>
                 {currentPage > 1 && (
                     <button 
-                        className='bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition duration-150'
+                        className='bg-white text-black px-4 py-2 rounded hover:bg-gray-300 transition duration-150'
                         onClick={prevPage}
                     >
                         Previous

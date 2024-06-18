@@ -102,7 +102,7 @@ const Navbar = () => {
             </ul>
 
             <div className="auth-links hidden sm:flex">
-              <button onClick={handleLogout} className="py-2 px-5 border rounded">
+              <button onClick={handleLogout} className="bg-white py-2 px-5 border rounded">
                 Log Out
               </button>
             </div>

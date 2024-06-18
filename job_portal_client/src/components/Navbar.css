@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: white; /* White background */
+  background-color: black; /* White background */
   border-bottom: 1px solid #E5E7EB;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   border-radius: 8px; /* Rounded corners */
@@ -49,7 +49,7 @@
 
 .nav-item a {
   font-family: 'DM Sans', sans-serif;
-  color: #3575E2; /* Blue text color */
+  color: #fff; /* Blue text color */
   font-size: 1rem;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -58,8 +58,8 @@
 }
 
 .nav-item a:hover, .nav-item a.active {
-  background-color: #3575E2; /* Blue background on hover */
-  color: white;
+  background-color: #ff0056; /* Blue background on hover */
+  color: black;
   transform: scale(1.05);
 }
 
@@ -90,8 +90,9 @@
 }
 
 .mobile-menu-button .icon {
-  color: #111827; /* Black icon color */
+  color: #131c2d; /* Black icon color */
   font-size: 1.5rem;
+  
 }
 
 /* Mobile Menu */

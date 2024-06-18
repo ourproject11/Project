@@ -10,18 +10,13 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  text-align: center; /* Center align text for better mobile view */
+  text-align: center;
 }
 
 .heading {
   font-size: 3rem;
   font-weight: bold;
-  color: var(--primary-color);
   margin-bottom: 0.75rem;
-}
-
-.heading .highlight {
-  color: var(--purple-color);
 }
 
 .subheading {
