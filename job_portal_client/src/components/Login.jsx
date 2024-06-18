@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import './Login.css';
 
@@ -11,7 +11,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const auth = getAuth();
-  const googleProvider = new GoogleAuthProvider();
   const db = getFirestore();
 
   const handleLogin = async (event) => {
@@ -35,31 +34,6 @@ const Login = () => {
     } catch (err) {
       console.error('Login error:', err);
       setError('Failed to log in. Please check your email and password.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleGoogleLogin = async () => {
-    setLoading(true);
-    setError('');
-
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      const userDocRef = doc(db, 'users', user.uid);
-      const userDoc = await getDoc(userDocRef);
-
-      if (userDoc.exists()) {
-        const userData = userDoc.data();
-        console.log('User data:', userData);
-        navigateBasedOnRole(userData.role);
-      } else {
-        setError('Failed to retrieve user role. Please try again.');
-      }
-    } catch (err) {
-      console.error('Google login error:', err);
-      setError('Failed to log in with Google.');
     } finally {
       setLoading(false);
     }
@@ -108,15 +82,6 @@ const Login = () => {
           {loading ? 'Logging in...' : 'Log In'}
         </button>
       </form>
-      <div className="google-login">
-        <button
-          className="google-login-button"
-          onClick={handleGoogleLogin}
-          disabled={loading}
-        >
-          Log In with Google
-        </button>
-      </div>
       <div className="login-footer">
         <p>Don't have an account?</p>
         <Link to="/register" className="register-link">Register</Link>
