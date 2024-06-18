@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import RegisterPage from "../Pages/RegisterPage";
 import CreateJob from "../Pages/CreateJob";
 import MyJobs from "../Pages/MyJobs";
+import SalaryPage from "../Pages/SalaryPage";
 import UpdateJobs from "../Pages/UpdateJob";
 import Login from "../components/Login";
 import JobDetails from "../Pages/JobDetails";
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/my",
         element: <ProtectedRoute component={MyJobs} />
+      },
+      {
+        path: "/salary",
+        element: <ProtectedRoute component={SalaryPage} />
       },
       {
         path: "edit-job/:id",

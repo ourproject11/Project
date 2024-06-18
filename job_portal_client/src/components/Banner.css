@@ -1,7 +1,7 @@
 :root {
-  --primary-color: #fff; 
-  --cherry-color: #ff0056; 
-  --blue-dark-color: #111827; 
+  --primary-color: #61dafb; /* Replace with your primary color */
+  --purple-color: #6b46c1; /* Replace with your purple color */
+  --purple-dark-color: #553c9a; /* Replace with a darker shade of your purple color */
 }
 
 .container {
@@ -10,20 +10,18 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  text-align: center;
-  background-color: #111827;
+  text-align: center; /* Center align text for better mobile view */
 }
 
 .heading {
   font-size: 3rem;
   font-weight: bold;
   color: var(--primary-color);
-  margin-top: -5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .heading .highlight {
-  color: var(--cherry-color);
+  color: var(--purple-color);
 }
 
 .subheading {
@@ -42,7 +40,7 @@
   display: flex;
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
   align-items: center;
-  border-bottom: 2px solid var(--cherry-color);
+  border-bottom: 2px solid var(--purple-color);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   gap: 1rem;
@@ -59,7 +57,7 @@
   line-height: 1.5;
   flex: 1;
   min-width: 300px;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--purple-color);
 }
 .input::placeholder {
   color: #a0aec0;
@@ -67,7 +65,7 @@
 
 .input:focus {
   outline: none;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--purple-dark-color);
 }
 
 .button {

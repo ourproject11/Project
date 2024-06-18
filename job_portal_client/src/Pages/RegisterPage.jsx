@@ -45,8 +45,8 @@ const RegisterPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800">
-      <div className="bg-black p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-3xl font-semibold text-center text-white mb-6">Register</h2>
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">Register</h2>
         {loading && <div className="loader"></div>}
         {success && (
           <div className="registration-popup">
@@ -55,7 +55,7 @@ const RegisterPage = () => {
         )}
         <form onSubmit={handleRegister} className="space-y-4">
           <div className="flex flex-col">
-            <label htmlFor="registerAs" className="text-white mb-1">Register As:</label>
+            <label htmlFor="registerAs" className="text-gray-800 mb-1">Register As:</label>
             <select
               id="registerAs"
               name="registerAs"
@@ -68,7 +68,7 @@ const RegisterPage = () => {
             </select>
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="text-white mb-1">Name:</label>
+            <label htmlFor="name" className="text-gray-800 mb-1">Name:</label>
             <input
               type="text"
               id="name"
@@ -80,7 +80,7 @@ const RegisterPage = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="email" className="text-white mb-1">Email Address:</label>
+            <label htmlFor="email" className="text-gray-800 mb-1">Email Address:</label>
             <input
               type="email"
               id="email"
@@ -92,7 +92,7 @@ const RegisterPage = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="phone" className="text-white mb-1">Phone Number:</label>
+            <label htmlFor="phone" className="text-gray-800 mb-1">Phone Number:</label>
             <input
               type="tel"
               id="phone"
@@ -104,7 +104,7 @@ const RegisterPage = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="password" className="text-white mb-1">Password:</label>
+            <label htmlFor="password" className="text-gray-800 mb-1">Password:</label>
             <input
               type="password"
               id="password"
@@ -119,14 +119,14 @@ const RegisterPage = () => {
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="bg-cherry text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none transition duration-300"
+              className="bg-blue text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none transition duration-300"
               disabled={loading}
             >
               {loading ? 'Registering...' : 'Register'}
             </button>
           </div>
         </form>
-        <p className="text-center text-white mt-4">
+        <p className="text-center text-gray-600 mt-4">
           Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Log In Now</Link>
         </p>
       </div>

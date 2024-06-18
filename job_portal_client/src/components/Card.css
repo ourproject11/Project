@@ -1,6 +1,6 @@
 /* Card Styles */
 .card {
-  background-color: #000; /* Light gray background */
+  background-color: #f7f7f7; /* Light gray background */
   border-radius: 10px; /* Rounded corners */
   padding: 20px; /* Padding around the card */
   margin-bottom: 20px; /* Spacing between cards */
@@ -9,14 +9,14 @@
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(69, 65, 65, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
 
 .card-link {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #fff; /* Dark text color */
+  color: #333; /* Dark text color */
 }
 
 .card-logo {
@@ -58,8 +58,8 @@
   }
 
   .card-logo {
-    width: 60px; 
-    height: 60px; 
-    margin-right: 15px;
+    width: 60px; /* Decrease logo size on smaller screens */
+    height: 60px; /* Decrease logo size on smaller screens */
+    margin-right: 15px; /* Decrease spacing on smaller screens */
   }
 }

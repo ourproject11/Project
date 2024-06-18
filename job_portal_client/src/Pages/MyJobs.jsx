@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './MyJobs.css';
 
 const MyJobs = () => {
     const email = "jai.prakshnryn@gmail.com";
@@ -82,75 +81,90 @@ const MyJobs = () => {
     };
 
     return (
-        <div className='container'>
-            <div className='header'>
-                <h1>All my jobs</h1>
+        <div className='max-w-screen-2xl container mx-auto px-4 py-6'>
+            <div className='text-left mb-6'>
+                <h1 className='text-3xl font-bold text-gray-900 text-center'>All My Jobs</h1>
+                <div className='flex justify-center mt-4'>
+                    <input
+                        type='text'
+                        name='search'
+                        id='search'
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                        placeholder='Search jobs by title'
+                        className='py-2 px-4 border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500 lg:w-1/3 w-full'
+                    />
+                    <button
+                        className='bg-black text-white font-semibold px-4 py-2 rounded-r-md'
+                        onClick={handleSearch}
+                    >
+                        Search
+                    </button>
                 </div>
-                <div className='search-container'>
-                <input
-                    type='text'
-                    name='search'
-                    id='search'
-                    value={searchText}
-                    onChange={(e) => setSearchText(e.target.value)}
-                    placeholder='Search jobs by title'
-                    className='search-input'
-                />
-                <button
-                    className='search-button'
-                    onClick={handleSearch}
-                >
-                    Search
-                </button>
             </div>
-            <section className="job-container">
-                <div className="job-header">
-                    <h3>All Jobs</h3>
+            <section className="bg-white p-4 rounded-lg shadow-lg">
+                <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xl font-semibold text-blue-600">All Jobs</h3>
                     <Link to="/post-job">
-                        <button className="post-job-button">
+                        <button className="bg-blue-500 text-white font-bold px-4 py-2 rounded hover:bg-blue-600 transition duration-150">
                             POST A NEW JOB
                         </button>
                     </Link>
                 </div>
-                <div className="table-container">
-                    <table>
+                <div className="overflow-x-auto">
+                    <table className="min-w-full bg-white">
                         <thead>
                             <tr>
-                                <th>NO.</th>
-                                <th>TITLE</th>
-                                <th>COMPANY NAME</th>
-                                <th>SALARY</th>
-                                <th>EDIT</th>
-                                <th>DELETE</th>
+                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    NO.
+                                </th>
+                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    TITLE
+                                </th>
+                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    COMPANY NAME
+                                </th>
+                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    SALARY
+                                </th>
+                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    EDIT
+                                </th>
+                                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    DELETE
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {isLoading ? (
                                 <tr>
-                                    <td colSpan="6">Loading...</td>
+                                    <td colSpan="6" className="text-center py-4">Loading...</td>
                                 </tr>
                             ) : (
                                 currentJobs.map((job, index) => (
                                     <tr key={job._id}>
-                                        <td>{indexOfFirstItem + index + 1}</td>
-                                        <td>{job.jobTitle}</td>
-                                        <td>{job.companyName}</td>
-                                        <td>${job.minPrice}-${job.maxPrice}</td>
-                                        <td>
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                            {indexOfFirstItem + index + 1}
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                            {job.jobTitle}
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                            {job.companyName}
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-gray-900 text-left">
+                                            ${job.minPrice}-${job.maxPrice}
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-left">
                                             <button 
-                                                className="edit-button"
+                                                className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition duration-150"
                                                 onClick={() => handleEdit(job._id)}
                                             >
                                                 EDIT
                                             </button>
                                         </td>
-                                        <td>
-                                            <button 
-                                                className="delete-button"
-                                                onClick={() => handleDelete(job._id)}
-                                            >
-                                                Delete
-                                            </button>
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-left">
+                                            <button onClick={() => handleDelete(job._id)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition duration-150">Delete</button>
                                         </td>
                                     </tr>
                                 ))
@@ -158,25 +172,26 @@ const MyJobs = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className='pagination'>
-                    {currentPage > 1 && (
-                        <button 
-                            className='pagination-button'
-                            onClick={prevPage}
-                        >
-                            Previous
-                        </button>
-                    )}
-                    {indexOfLastItem < filteredJobs.length && (
-                        <button 
-                            className='pagination-button'
-                            onClick={nextPage}
-                        >
-                            Next
-                        </button>
-                    )}
-                </div>
             </section>
+            {/* Pagination */}
+            <div className='flex justify-center mt-6 space-x-4'>
+                {currentPage > 1 && (
+                    <button 
+                        className='bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition duration-150'
+                        onClick={prevPage}
+                    >
+                        Previous
+                    </button>
+                )}
+                {indexOfLastItem < filteredJobs.length && (
+                    <button 
+                        className='bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition duration-150'
+                        onClick={nextPage}
+                    >
+                        Next
+                    </button>
+                )}
+            </div>
         </div>
     );
 };

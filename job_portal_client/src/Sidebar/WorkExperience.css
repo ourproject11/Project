@@ -1,5 +1,5 @@
 /* Base styles (default for all screen sizes) */
-.posting-title {
+.work-experience-title {
   font-size: 1.125rem; /* text-lg */
   font-weight: 500; /* font-medium */
   margin-bottom: 0.5rem; /* mb-2 */
@@ -21,7 +21,7 @@
 
 /* Medium screens (tablets, 768px and above) */
 @media (min-width: 768px) {
-  .posting-title {
+  .work-experience-title {
     font-size: 1.25rem; /* text-xl */
     margin-bottom: 0.75rem; /* mb-3 */
   }
@@ -37,7 +37,7 @@
 
 /* Large screens (desktops, 1024px and above) */
 @media (min-width: 1024px) {
-  .posting-title {
+  .work-experience-title {
     font-size: 1.5rem; /* text-2xl */
     margin-bottom: 1rem; /* mb-4 */
   }

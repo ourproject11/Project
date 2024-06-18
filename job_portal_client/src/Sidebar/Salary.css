@@ -1,8 +1,14 @@
 /* Base styles (default for all screen sizes) */
-.posting-title {
+.salary-title {
   font-size: 1.125rem; /* text-lg */
   font-weight: 500; /* font-medium */
   margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.button-group {
+  margin-bottom: 1rem; /* mb-4 */
+  display: flex;
+  gap: 0.5rem; /* Add gap between buttons */
 }
 
 .side-label-container {
@@ -21,9 +27,14 @@
 
 /* Medium screens (tablets, 768px and above) */
 @media (min-width: 768px) {
-  .posting-title {
+  .salary-title {
     font-size: 1.25rem; /* text-xl */
     margin-bottom: 0.75rem; /* mb-3 */
+  }
+  
+  .button-group {
+    margin-bottom: 1.5rem; /* mb-6 */
+    gap: 0.75rem; /* gap-3 */
   }
   
   .side-label-container {
@@ -37,9 +48,14 @@
 
 /* Large screens (desktops, 1024px and above) */
 @media (min-width: 1024px) {
-  .posting-title {
+  .salary-title {
     font-size: 1.5rem; /* text-2xl */
     margin-bottom: 1rem; /* mb-4 */
+  }
+  
+  .button-group {
+    margin-bottom: 2rem; /* mb-8 */
+    gap: 1rem; /* gap-4 */
   }
   
   .side-label-container {
