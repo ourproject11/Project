@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import { FiCalendar, FiClock, FiDollarSign, FiMapPin } from "react-icons/fi";
 import './Card.css';
 
-const Card = ({ data }) => {
-  const {_id, companyName, jobTitle, companyLogo, minPrice, maxPrice, salaryType, jobLocation, employmentType, postingDate, description } = data;
+const Card = ({ data, searchCompanyName }) => {
+  const { _id, companyName, jobTitle, companyLogo, minPrice, maxPrice, salaryType, jobLocation, employmentType, postingDate, description } = data;
+
+  // Check if searchCompanyName exists and filter by company name
+  if (searchCompanyName && !companyName.toLowerCase().includes(searchCompanyName.toLowerCase())) {
+    return null; // Return null if company name doesn't match search
+  }
+
   return (
     <section className='card'>
       <Link to={`/job/${_id}`} className='card-link'>
@@ -26,5 +32,3 @@ const Card = ({ data }) => {
 };
 
 export default Card;
-
-
