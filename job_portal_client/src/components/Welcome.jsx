@@ -36,27 +36,27 @@ const Welcome = () => {
       {/* How It Works Section */}
       <section className="bg-gradient-to-b from-blue-200 to-blue-400 py-16">
         <div className="container mx-auto px-6 text-white">
-          <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
+          <h2 className="text-black text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="flex flex-col items-center bg-black rounded-lg p-6 shadow-md">
+            <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
               <img src={registerImage} alt="Register" className="w-22 h-20 mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Register</h3>
-              <p className="text-white text-center">Create an account and complete your profile.</p>
+              <h3 className="text-xl font-bold mb-2 text-black">Register</h3>
+              <p className="text-gray-800 text-center">Create an account and complete your profile.</p>
             </div>
-            <div className="flex flex-col items-center bg-black rounded-lg p-6 shadow-md">
+            <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
               <img src={searchImage} alt="Search" className="w-20 h-20 mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Search</h3>
-              <p className="text-white text-center">Browse through thousands of job listings.</p>
+              <h3 className="text-xl font-bold mb-2 text-black">Search</h3>
+              <p className="text-gray-800 text-center">Browse through thousands of job listings.</p>
             </div>
-            <div className="flex flex-col items-center bg-black rounded-lg p-6 shadow-md">
+            <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
               <img src={applyImage} alt="Apply" className="w-20 h-20 mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Apply</h3>
-              <p className="text-white text-center">Submit your application directly through our portal.</p>
+              <h3 className="text-xl font-bold mb-2 text-black">Apply</h3>
+              <p className="text-gray-800 text-center">Submit your application directly through our portal.</p>
             </div>
-            <div className="flex flex-col items-center bg-black rounded-lg p-6 shadow-md">
+            <div className="flex flex-col items-center bg-white rounded-lg p-6 shadow-md">
               <img src={hireImage} alt="Get Hired" className="w-20 h-20 mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">Get Hired</h3>
-              <p className="text-white text-center">Receive offers and start your new career.</p>
+              <h3 className="text-xl font-bold mb-2 text-black">Get Hired</h3>
+              <p className="text-gray-800 text-center">Receive offers and start your new career.</p>
             </div>
           </div>
         </div>

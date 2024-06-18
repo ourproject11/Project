@@ -141,3 +141,43 @@
   .step:hover {
     transform: translateY(-10px);
   }
+  
+  .welcome-users-say {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2rem 0;
+    width: 100%;
+    text-align: center;
+    background: #F0F8FF;
+  }
+  
+  .user-feedback {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .user-feedback p {
+    max-width: 600px;
+    margin: 1rem 0;
+    margin-right: 12rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #111111; /* Text Color */
+  }
+  
+  .user-image {
+    width: 200px;
+    height: auto;
+    margin-right: 12rem;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .welcome-footer {
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+    background-color: #FFFFFF; /* Background Color */
+  }
+  
