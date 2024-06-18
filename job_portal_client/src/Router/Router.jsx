@@ -12,6 +12,8 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import CandidateDashboard from "../components/CandidateDashboard";
 import EmployeeDashboard from "../components/EmployeeDashboard";
 import Welcome from "../components/Welcome";
+import AppliedJobs from "../Pages/AppliedJobs";
+import Applicants from "../Pages/Applicants";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element : <Welcome />
+        element: <Welcome />
       },
       {
         path: "/home",
@@ -53,7 +55,15 @@ const router = createBrowserRouter([
       {
         path: "/employee-dashboard",
         element: <ProtectedRoute component={EmployeeDashboard} />
-      }
+      },
+      {
+        path: "/applied-jobs",
+        element: <ProtectedRoute component={AppliedJobs} />
+      },
+      {
+        path: "/applicants/:id", element: <ProtectedRoute component={Applicants} />
+      },
+
     ]
   }
 ]);
