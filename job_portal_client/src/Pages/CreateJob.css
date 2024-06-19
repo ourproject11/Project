@@ -1,5 +1,6 @@
 
 .container {
+    background-color:#111827;
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
@@ -40,11 +41,11 @@
     display: block;
     width: 100%;
     flex: 1;
-    background-color: white;
+    background-color: black;
     padding-top: 0.375rem;
     padding-left: 0.75rem;
     padding-bottom: 0.375rem;
-    color: #1f2937;
+    color: white;
     outline: none;
     font-size: 0.875rem;
    line-height: 1.5rem;

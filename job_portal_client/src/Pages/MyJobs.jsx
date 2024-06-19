@@ -157,7 +157,7 @@ const MyJobs = () => {
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-left">
                                             <button 
-                                                className="bg-yellow-500 text-black px-3 py-1 rounded hover:bg-yellow-600 transition duration-150"
+                                                className="bg-yellow text-black px-3 py-1 rounded hover:bg-yellow transition duration-150"
                                                 onClick={() => handleEdit(job._id)}
                                             >
                                                 EDIT

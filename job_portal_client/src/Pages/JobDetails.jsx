@@ -37,37 +37,37 @@ const JobDetails = () => {
       {showForm ? (
         <ApplyForm jobData={jobData} setShowForm={setShowForm} /> // Pass jobData and setShowForm as props to ApplyForm
       ) : (
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white text-center py-6">
+        <div className="bg-black shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-gradient-to-r from-black via-cherry to-lightred text-white text-center py-6">
             <h2 className="text-4xl font-bold">{jobData.jobTitle}</h2>
             <p className="mt-2 text-xl">{jobData.companyName}</p>
           </div>
           <div className="p-6">
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-4">Job Details</h3>
-              <p className="text-gray-800 mb-2">
+              <p className="text-white mb-2">
                 <span className="font-bold">Location:</span> {jobData.jobLocation}
               </p>
-              <p className="text-gray-800 mb-2">
+              <p className="text-white mb-2">
                 <span className="font-bold">Salary:</span> {jobData.minPrice} - {jobData.maxPrice} ({jobData.salaryType})
               </p>
-              <p className="text-gray-800 mb-2">
+              <p className="text-white mb-2">
                 <span className="font-bold">Experience Level:</span> {jobData.experienceLevel}
               </p>
-              <p className="text-gray-800 mb-2">
+              <p className="text-white mb-2">
                 <span className="font-bold">Posted On:</span> {new Date(jobData.createdAt).toLocaleDateString()}
               </p>
-              <p className="text-gray-800 mb-2">
+              <p className="text-white mb-2">
                 <span className="font-bold">Skills Required:</span> {jobData.skills.join(', ')}
               </p>
-              <p className="text-gray-800 mt-4">
+              <p className="text-white mt-4">
                 <span className="font-bold">Description:</span> {jobData.description}
               </p>
             </div>
             <div className="text-center">
               <button
                 onClick={handleApplyClick}
-                className="bg-purple-600 text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-purple-700 transition duration-300"
+                className="bg-yellow text-black py-3 px-8 rounded-full text-lg font-bold hover:bg-black,text-white transition duration-300"
               >
                 Apply for this Job
               </button>

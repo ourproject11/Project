@@ -85,10 +85,10 @@ const UpdateJob = () => {
   return (
     <div className="container">
       <ToastContainer />
-      <div className="bg-light-gray">
+      <div className="bg-black">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Job Title */}
-          <div className="flex-row">
+          <div className="text-white flex-row">
             <div className="half-width">
               <label className="form-label">Job Title</label>
               <input
@@ -110,7 +110,7 @@ const UpdateJob = () => {
             </div>
           </div>
           {/* Minimum Salary */}
-          <div className="flex-row">
+          <div className="text-white flex-row">
             <div className="half-width">
               <label className="form-label">Minimum Salary</label>
               <input
@@ -135,7 +135,7 @@ const UpdateJob = () => {
             </div>
           </div>
           {/* Salary Type */}
-          <div className="flex-row">
+          <div className="text-white flex-row">
             <div className="half-width">
               <label className="form-label">Salary Type</label>
               <select
@@ -162,7 +162,7 @@ const UpdateJob = () => {
             </div>
           </div>
           {/* Job Posting Date */}
-          <div className="flex-row">
+          <div className="text-white flex-row">
             <div className="half-width">
               <label className="form-label">Job Posting Date</label>
               <input
@@ -190,7 +190,7 @@ const UpdateJob = () => {
           </div>
           {/* Required Skills Set */}
           <div>
-            <label className="form-label">Required Skills Set</label>
+            <label className="text-white form-label">Required Skills Set</label>
             <CreatableSelect
               defaultValue={selectedOption}
               onChange={setSelectedOption}
@@ -200,7 +200,7 @@ const UpdateJob = () => {
             />
           </div>
           {/* Company Logo */}
-          <div className="flex-row">
+          <div className="text-white flex-row">
             <div className="half-width">
               <label className="form-label">Company Logo</label>
               <input
@@ -227,7 +227,7 @@ const UpdateJob = () => {
             </div>
           </div>
           {/* Job Description */}
-          <div className="w-full">
+          <div className="text-white w-full">
             <label className="form-label">Job Description</label>
             <textarea
               className="textarea"

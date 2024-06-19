@@ -29,14 +29,14 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="bg-black shadow-lg rounded-lg overflow-hidden">
       <div className="p-6">
-        <h3 className="text-2xl font-bold mb-4">Apply for {jobData.jobTitle}</h3>
+        <h3 className="text-white text-2xl font-bold mb-4">Apply for {jobData.jobTitle}</h3>
         {!submitted ? (
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6">
             {/* Personal Information */}
             <div className="space-y-4">
-              <label className="block text-gray-700 font-bold">Name</label>
+              <label className="block text-white font-bold">Name</label>
               <input
                 type="text"
                 name="name"
@@ -46,7 +46,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
                 required
               />
 
-              <label className="block text-gray-700 font-bold">Email</label>
+              <label className="block text-white font-bold">Email</label>
               <input
                 type="email"
                 name="email"
@@ -56,7 +56,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
                 required
               />
 
-              <label className="block text-gray-700 font-bold">Phone</label>
+              <label className="block text-white font-bold">Phone</label>
               <input
                 type="tel"
                 name="phone"
@@ -69,16 +69,16 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
 
             {/* Attachments */}
             <div className="space-y-4">
-              <label className="block text-gray-700 font-bold">Resume</label>
+              <label className="block text-white font-bold">Resume</label>
               <input
                 type="file"
                 name="resume"
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-blue-500"
+                className="bg-white w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-blue-500"
                 required
               />
 
-              <label className="block text-gray-700 font-bold">Cover Letter</label>
+              <label className="block text-white font-bold">Cover Letter</label>
               <textarea
                 name="coverLetter"
                 value={formData.coverLetter}
@@ -90,7 +90,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
 
             {/* Additional Information */}
             <div className="sm:col-span-2 space-y-4">
-              <label className="block text-gray-700 font-bold">Why should I hire you?</label>
+              <label className="block text-white font-bold">Why should I hire you?</label>
               <textarea
                 name="whyHireYou"
                 value={formData.whyHireYou}
@@ -100,7 +100,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
                 required
               />
 
-              <label className="block text-gray-700 font-bold">Current Address</label>
+              <label className="block text-white font-bold">Current Address</label>
               <input
                 type="text"
                 name="currentAddress"
@@ -110,7 +110,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
                 required
               />
 
-              <label className="block text-gray-700 font-bold">Local Address</label>
+              <label className="block text-white font-bold">Local Address</label>
               <input
                 type="text"
                 name="localAddress"
@@ -120,7 +120,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
                 required
               />
 
-              <label className="block text-gray-700 font-bold">Experience</label>
+              <label className="block text-white font-bold">Experience</label>
               <textarea
                 name="experience"
                 value={formData.experience}
@@ -135,13 +135,13 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
             <div className="sm:col-span-2 flex justify-center space-x-4 mt-6">
               <button
                 type="submit"
-                className="bg-purple-600 text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-purple-700 transition duration-300"
+                className="bg-cherry text-white py-3 px-8 rounded-full text-lg font-bold hover:bg-darkred transition duration-300"
               >
                 Submit Application
               </button>
               <button
                 onClick={() => setShowForm(false)}
-                className="text-gray-600 hover:text-gray-800 focus:outline-none"
+                className="text-white hover:text-gray-800 focus:outline-none"
               >
                 Cancel
               </button>

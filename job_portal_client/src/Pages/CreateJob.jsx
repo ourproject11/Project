@@ -60,7 +60,7 @@ const CreateJob = () => {
   ];
 
   return (
-    <div className="bg-darkblue min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="bg-black p-8 rounded-lg shadow-lg w-full max-w-3xl">
         <h2 className="text-3xl font-semibold text-center text-white mb-8">Create a Job</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -110,7 +110,7 @@ const CreateJob = () => {
             </div>
             <div>
               <label className="block text-sm font-medium text-white mb-1">Salary Type</label>
-              <select {...register("salaryType")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
+              <select {...register("salaryType")} className="bg-black text-white form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
                 <option value="">Choose salary type</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Monthly">Monthly</option>
@@ -144,7 +144,7 @@ const CreateJob = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-white mb-1">Experience Level</label>
-              <select {...register("experiencelevel")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
+              <select {...register("experiencelevel")} className="bg-black form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
                 <option value="">Choose experience level</option>
                 <option value="No Experience">No experience</option>
                 <option value="Internship">Internship</option>
@@ -177,7 +177,7 @@ const CreateJob = () => {
             </div>
             <div>
               <label className="block text-sm font-medium text-white mb-1">Employment Type</label>
-              <select {...register("employmentType")} className="form-select border border-gray-300 focus:border-blue-500 rounded-md px-3 py-2">
+              <select {...register("employmentType")} className="bg-blackform-select border border-gray-300 focus:border-cherry rounded-md px-3 py-2">
                 <option value="">Choose employment type</option>
                 <option value="Full-time">Full-time</option>
                 <option value="Part-time">Part-time</option>
@@ -190,7 +190,7 @@ const CreateJob = () => {
           <div>
             <label className="block text-sm font-medium text-white mb-1">Job Description</label>
             <textarea
-              className="form-textarea w-full px-3 py-2 bg-white text-white border border-gray-300 rounded-lg focus:outline-none"
+              className="form-textarea w-full px-3 py-2 bg-black text-white border border-gray-300 rounded-lg focus:outline-none"
               rows={6}
               {...register("description")}
               placeholder="Enter job description"

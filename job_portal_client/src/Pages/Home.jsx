@@ -102,7 +102,7 @@ const Home = ({ role }) => {
                   <button
                     onClick={prevPage}
                     disabled={isPrevDisabled()}
-                    className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md focus:outline-none ${isPrevDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`bg-cherry hover:bg-darkred text-white py-2 px-4 rounded-md focus:outline-none ${isPrevDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     Previous
                   </button>
@@ -112,7 +112,7 @@ const Home = ({ role }) => {
                   <button
                     onClick={nextPage}
                     disabled={isNextDisabled()}
-                    className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md focus:outline-none ${isNextDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`bg-cherry hover:bg-darkred text-white py-2 px-4 rounded-md focus:outline-none ${isNextDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     Next
                   </button>

@@ -1,8 +1,4 @@
-:root {
-  --primary-color: #61dafb; /* Replace with your primary color */
-  --purple-color: #6b46c1; /* Replace with your purple color */
-  --purple-dark-color: #553c9a; /* Replace with a darker shade of your purple color */
-}
+
 
 .container {
   max-width: 1280px;

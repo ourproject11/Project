@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = ({ handleSearch, searchText, setSearchText }) => {
   return (
-    <div className="bg-gray-200 p-4 mb-4 rounded-lg text-center">
+    <div className="bg-darkblue p-4 mb-4 rounded-lg text-center">
       <form onSubmit={handleSearch} className="flex items-center justify-center">
         <input
           type="text"
@@ -14,7 +14,7 @@ const Banner = ({ handleSearch, searchText, setSearchText }) => {
         />
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md focus:outline-none"
+          className="bg-cherry hover:bg-darkred text-black px-4 py-2 rounded-r-md focus:outline-none"
         >
           Search
         </button>
