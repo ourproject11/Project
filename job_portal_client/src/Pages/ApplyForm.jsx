@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import Firebase Storage
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,8 +22,6 @@ const ApplyForm = ({ jobData, setShowForm }) => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
 
-
-
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     if (type === 'file') {
@@ -36,22 +34,15 @@ const ApplyForm = ({ jobData, setShowForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!currentUser){
-      return <p>Loading...</p>
-    }
-
     if (currentUser) {
       try {
         // Initialize Firebase Storage
-        console.log('Initializing Firebase storage...');
         const storage = getStorage();
         
         // Upload resume to Firebase Storage
-        console.log("Uploading resume to storage.app.");
         const resumeRef = ref(storage, `resumes/${formData.resume.name}`);
         await uploadBytes(resumeRef, formData.resume);
         const resumeURL = await getDownloadURL(resumeRef);
-        console.log("Resume uploaded successfully" , resumeURL);
 
         const newApplication = {
           ...formData,
@@ -60,14 +51,11 @@ const ApplyForm = ({ jobData, setShowForm }) => {
           jobId: jobData.id,
           jobTitle: jobData.jobTitle,
           company: jobData.companyName,
-          status: 'Applied',
-          timestamp : new Date()
+          status: 'Applied'
         };
-        console.log('Submitting');
+
         await addDoc(collection(db, 'appliedJobs'), newApplication);
         setSubmitted(true);
-
-        console.log("Application submitted successfully!");
         
         // Show toast notification
         toast.success('Application submitted successfully!');

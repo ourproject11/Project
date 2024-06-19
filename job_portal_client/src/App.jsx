@@ -1,6 +1,4 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import './App.css';
@@ -15,7 +13,6 @@ function App() {
     <AuthProvider>
       {!hideNavbar && <Navbar />}
       <Outlet />
-      <ToastContainer />
     </AuthProvider>
   );
 }
