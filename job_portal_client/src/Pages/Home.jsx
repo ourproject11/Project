@@ -131,7 +131,6 @@ const Home = ({ role }) => {
           )}
           {role === "employee" && (
             <div className="employee-content">
-              <h2>Employee Specific Content</h2>
               <nav>
                 <Link to="/my-jobs">My Jobs</Link>
                 <Link to="/salary">Salary</Link>

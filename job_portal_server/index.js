@@ -9,7 +9,6 @@ app.use(cors());
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.zkkux1w.mongodb.net/?retryWrites=true&w=majority&appName=job-portal`;
-
 const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
   connectTimeoutMS: 10000, // 10 seconds
@@ -23,6 +22,7 @@ async function run() {
 
     const db = client.db("mernJobPortal");
     const jobsCollections = db.collection("demoJobs");
+    const applicationsCollection = db.collection("jobApplications");
 
     app.post("/post-job", async (req, res) => {
       const body = req.body;
@@ -59,14 +59,12 @@ async function run() {
           ...jobData
         },
       };
-    
+
       try {
         const result = await jobsCollections.updateOne(filter, updateDoc);
         if (result.modifiedCount > 0) {
-          // Job updated successfully
           res.status(200).json({ message: "Job updated successfully" });
         } else {
-          // No job found with the given ID
           res.status(404).json({ message: "No job found with the given ID" });
         }
       } catch (error) {
@@ -84,12 +82,10 @@ async function run() {
         return res.status(404).send({ message: "Job not found" });
       }
 
-      // Validate application data here
       if (!isValidApplication(applicationData)) {
         return res.status(400).send({ message: "Invalid application data" });
       }
 
-      const applicationsCollection = db.collection("jobApplications");
       applicationData.jobId = id;
       applicationData.appliedAt = new Date();
 
@@ -105,6 +101,11 @@ async function run() {
     app.get("/myJobs/:email", async (req, res) => {
       const jobs = await jobsCollections.find({ postedBy: req.params.email }).toArray();
       res.send(jobs);
+    });
+
+    app.get("/myApplications/:userId", async (req, res) => {
+      const applications = await applicationsCollection.find({ userId: req.params.userId }).toArray();
+      res.send(applications);
     });
 
     app.delete("/job/:id", async (req, res) => {
@@ -124,13 +125,16 @@ async function run() {
 run().catch(console.dir);
 
 function isValidApplication(applicationData) {
-  // Validate application data here
-  // For example, check if all required fields are present and valid
   return (
-    applicationData.firstName &&
-    applicationData.lastName &&
+    applicationData.name &&
     applicationData.email &&
-    applicationData.resume
+    applicationData.phone &&
+    applicationData.resume &&
+    applicationData.coverLetter &&
+    applicationData.whyHireYou &&
+    applicationData.currentAddress &&
+    applicationData.localAddress &&
+    applicationData.experience
   );
 }
 

@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { collection, addDoc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Import Firebase Storage
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from '../context/AuthContext';
 
-const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
+const ApplyForm = ({ jobData, setShowForm }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    resume: '',
+    resume: null,
     coverLetter: '',
     whyHireYou: '',
     currentAddress: '',
@@ -13,19 +19,59 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
     experience: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, files } = e.target;
+    if (type === 'file') {
+      setFormData({ ...formData, [name]: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission delay
-    await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    setSubmitted(true);
-    onApplySuccess();
+    if (currentUser) {
+      try {
+        // Initialize Firebase Storage
+        const storage = getStorage();
+        
+        // Upload resume to Firebase Storage
+        const resumeRef = ref(storage, `resumes/${formData.resume.name}`);
+        await uploadBytes(resumeRef, formData.resume);
+        const resumeURL = await getDownloadURL(resumeRef);
+
+        const newApplication = {
+          ...formData,
+          resume: resumeURL,
+          userId: currentUser.uid,
+          jobId: jobData.id,
+          jobTitle: jobData.jobTitle,
+          company: jobData.companyName,
+          status: 'Applied'
+        };
+
+        await addDoc(collection(db, 'appliedJobs'), newApplication);
+        setSubmitted(true);
+        
+        // Show toast notification
+        toast.success('Application submitted successfully!');
+        
+        // Navigate to the applied jobs page after a delay to show the toast
+        setTimeout(() => {
+          navigate('/applied-jobs', { state: { message: 'Application submitted successfully!', company: jobData.companyName } });
+        }, 2000);
+      } catch (error) {
+        console.error('Error submitting application:', error);
+        toast.error('Failed to submit application. Please try again.');
+      }
+    } else {
+      console.error('No user is signed in');
+      toast.error('No user is signed in.');
+    }
   };
 
   return (
@@ -34,7 +80,6 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
         <h3 className="text-white text-2xl font-bold mb-4">Apply for {jobData.jobTitle}</h3>
         {!submitted ? (
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6">
-            {/* Personal Information */}
             <div className="space-y-4">
               <label className="block text-white font-bold">Name</label>
               <input
@@ -67,7 +112,6 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
               />
             </div>
 
-            {/* Attachments */}
             <div className="space-y-4">
               <label className="block text-white font-bold">Resume</label>
               <input
@@ -88,7 +132,6 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
               />
             </div>
 
-            {/* Additional Information */}
             <div className="sm:col-span-2 space-y-4">
               <label className="block text-white font-bold">Why should I hire you?</label>
               <textarea
@@ -131,7 +174,6 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
               />
             </div>
 
-            {/* Submission Buttons */}
             <div className="sm:col-span-2 flex justify-center space-x-4 mt-6">
               <button
                 type="submit"
@@ -140,6 +182,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
                 Submit Application
               </button>
               <button
+                type="button"
                 onClick={() => setShowForm(false)}
                 className="text-white hover:text-gray-800 focus:outline-none"
               >
@@ -151,6 +194,7 @@ const ApplyForm = ({ jobData, setShowForm, onApplySuccess }) => {
           <p className="text-green-600 font-bold">Application submitted successfully!</p>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };

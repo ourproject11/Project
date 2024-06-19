@@ -52,12 +52,11 @@ const Navbar = () => {
   ];
 
   const candidateNavItems = [
-    { path: "/salary", title: "Salary" },
+    { path: "/applied-jobs", title: "Applied Jobs" },
   ];
 
   const employerNavItems = [
     { path: "/my", title: "My Jobs" },
-    { path: "/salary", title: "Salary" },
     { path: "/post-job", title: "Post a Job" },
   ];
 
@@ -82,7 +81,6 @@ const Navbar = () => {
                   <NavLink 
                     to={path} 
                     className={({ isActive }) => isActive ? "active text-black" : "text-black"}
-                    activeClassName="text-blue-600"
                   >
                     {title}
                   </NavLink>
@@ -93,7 +91,6 @@ const Navbar = () => {
                   <NavLink 
                     to={path} 
                     className={({ isActive }) => isActive ? "active text-black" : "text-black"}
-                    activeClassName="text-blue-600"
                   >
                     {title}
                   </NavLink>
@@ -129,7 +126,6 @@ const Navbar = () => {
                 <NavLink 
                   to={path} 
                   className={({ isActive }) => isActive ? "active text-black" : "text-black"}
-                  activeClassName="text-blue-600"
                 >
                   {title}
                 </NavLink>
@@ -140,7 +136,6 @@ const Navbar = () => {
                 <NavLink 
                   to={path} 
                   className={({ isActive }) => isActive ? "active text-black" : "text-black"}
-                  activeClassName="text-blue-600"
                 >
                   {title}
                 </NavLink>

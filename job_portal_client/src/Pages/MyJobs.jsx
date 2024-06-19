@@ -80,6 +80,10 @@ const MyJobs = () => {
         navigate(`/edit-job/${id}`);
     };
 
+    const viewApplicants = (jobId) => {
+        navigate(`/applicants/${jobId}`);
+    };
+
     return (
         <div className='bg-black max-w-screen-2xl container mx-auto px-4 py-6'>
             <div className='text-left mb-6'>
@@ -128,6 +132,9 @@ const MyJobs = () => {
                                     SALARY
                                 </th>
                                 <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
+                                    APPLICANTS
+                                </th>
+                                <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
                                     EDIT
                                 </th>
                                 <th className="px-6 py-3 border-b border-gray-200 bg-black text-left text-xs font-bold text-white uppercase tracking-wider">
@@ -138,7 +145,7 @@ const MyJobs = () => {
                         <tbody>
                             {isLoading ? (
                                 <tr>
-                                    <td colSpan="6" className="text-center py-4">Loading...</td>
+                                    <td colSpan="7" className="text-center py-4">Loading...</td>
                                 </tr>
                             ) : (
                                 currentJobs.map((job, index) => (
@@ -153,7 +160,15 @@ const MyJobs = () => {
                                             {job.companyName}
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-white text-left">
-                                            ${job.minPrice}-${job.maxPrice}
+                                            ${job.minPrice}-{job.maxPrice}
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-left">
+                                            <button 
+                                                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition duration-150"
+                                                onClick={() => viewApplicants(job._id)}
+                                            >
+                                                View Applicants
+                                            </button>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap border-b border-gray-200 text-sm text-left">
                                             <button 

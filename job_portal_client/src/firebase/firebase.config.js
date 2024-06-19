@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 // Firebase configuration object containing keys and identifiers for your app
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDbaB2witKfnuBD5jdjo6sH3fQib1d2f5E",
   authDomain: "job-portal-efb7b.firebaseapp.com",
   databaseURL: "https://job-portal-efb7b-default-rtdb.asia-southeast1.firebasedatabase.app",
